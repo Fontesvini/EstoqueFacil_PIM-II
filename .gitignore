@@ -1,0 +1,14 @@
+# Dados locais e arquivos produzidos ao executar
+*.dat
+*.dat.tmp
+relatorio.txt
+# Compilação
+codigo/estoquefacil
+codigo/estoquefacil.exe
+*.o
+*.obj
+*.dSYM/
+# Arquivos temporários do sistema e do Word
+.DS_Store
+Thumbs.db
+~$*.docx

@@ -1,0 +1,45 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 15
+skinparam dpi 220
+top to bottom direction
+rectangle "EstoqueFácil - extensões de erro" {
+  usecase "Fazer login" as Login
+  usecase "Cadastrar usuário" as Cadastro
+  usecase "Registrar movimentação" as Mov
+  usecase "Registrar saída" as Saida
+  usecase "Executar ação protegida" as Protegida <<abstrato>>
+  usecase "Carregar ou salvar dados" as Arquivo <<apoio>>
+  usecase "Senha incorreta" as E1
+  usecase "Usuário inativo" as E2
+  usecase "Usuário bloqueado\napós 3 tentativas" as E3
+  usecase "Login já existente" as E4
+  usecase "Acesso negado por\nfalta de permissão" as E5
+  usecase "Produto não encontrado" as E6
+  usecase "Quantidade inválida" as E7
+  usecase "Estoque insuficiente" as E8
+  usecase "Falha no arquivo" as E9
+}
+E1 ..> Login : <<extend>>\n[senha não confere]
+E2 ..> Login : <<extend>>\n[ativo = 0]
+E3 ..> Login : <<extend>>\n[terceiro erro ou bloqueio vigente]
+E4 ..> Cadastro : <<extend>>\n[login em uso]
+E5 ..> Protegida : <<extend>>\n[permissão ausente]
+E6 ..> Mov : <<extend>>\n[produto inexistente]
+E7 ..> Mov : <<extend>>\n[quantidade não inteira ou <= 0]
+E8 ..> Saida : <<extend>>\n[quantidade > saldo]
+E9 ..> Arquivo : <<extend>>\n[erro de leitura ou gravação]
+note bottom of Protegida
+  Fragmento dos casos com permissão específica.
+  Também se aplica a alterar nível, inativar usuário,
+  manter produto, gerar relatório e fazer backup.
+end note
+note bottom of Arquivo
+  Caso de apoio para mostrar o tratamento comum.
+  Falha ao salvar exige recuperar os dados anteriores.
+  Consultas usam os vetores já carregados em memória.
+  Não é uma opção adicional de menu.
+end note
+@enduml

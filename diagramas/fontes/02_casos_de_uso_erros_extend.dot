@@ -1,0 +1,31 @@
+digraph G {
+graph [layout=neato, overlap=true, splines=line, outputorder=edgesfirst, bgcolor="white", pad="0.08", margin=0, notranslate=true];
+node [pin=true, fontname="Arial", fontsize=18, shape=box, fixedsize=true, margin=0, color="black", style="filled", fillcolor="white", penwidth=1.5];
+edge [fontname="Arial", fontsize=16, color="black", penwidth=1.35, arrowsize=0.8];
+_a [label="", pos="0.0,0.0!", width="0.0", height="0.0", shape="point", style="invis"];
+_z [label="", pos="11.11111111111111,-14.166666666666666!", width="0.0", height="0.0", shape="point", style="invis"];
+e1 [label="Senha incorreta\n[senha não confere]", pos="2.9166666666666665,-0.9027777777777778!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e1:e -> login:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e2 [label="Usuário inativo\n[ativo = 0]", pos="2.9166666666666665,-2.361111111111111!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e2:e -> login:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e3 [label="Usuário bloqueado após 3 tentativas\n[terceiro erro ou bloqueio vigente]", pos="2.9166666666666665,-3.888888888888889!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e3:e -> login:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e4 [label="Login já existente\n[login em uso]", pos="2.9166666666666665,-5.555555555555555!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e4:e -> cad:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e5 [label="Acesso negado por falta de permissão\n[ação não permitida]", pos="2.9166666666666665,-7.083333333333333!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e5:e -> protegida:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e6 [label="Produto não encontrado\n[código inexistente]", pos="2.9166666666666665,-8.61111111111111!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e6:e -> mov:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e7 [label="Quantidade inválida\n[não inteira ou menor ou igual a zero]", pos="2.9166666666666665,-10.208333333333334!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e7:e -> mov:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e8 [label="Estoque insuficiente\n[saída maior que saldo]", pos="2.9166666666666665,-11.805555555555555!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e8:e -> saida:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+e9 [label="Falha no arquivo\n[erro ao ler ou gravar]", pos="2.9166666666666665,-13.402777777777779!", width="5.625", height="1.1805555555555556", shape="ellipse", fontsize="17"];
+e9:e -> arquivo:w [arrowhead="open", style="dashed", label="«extend»", fontsize="16"];
+login [label="Fazer login", pos="9.069444444444445,-2.361111111111111!", width="3.9583333333333335", height="1.1111111111111112", shape="ellipse", fontsize="17"];
+cad [label="Cadastrar usuário", pos="9.069444444444445,-5.555555555555555!", width="3.9583333333333335", height="1.1111111111111112", shape="ellipse", fontsize="17"];
+protegida [label="Executar ação protegida\n{abstrato}", pos="9.069444444444445,-7.083333333333333!", width="3.9583333333333335", height="1.1111111111111112", shape="ellipse", fontsize="17"];
+mov [label="Registrar movimentação", pos="9.069444444444445,-9.375!", width="3.9583333333333335", height="1.1111111111111112", shape="ellipse", fontsize="17"];
+saida [label="Registrar saída", pos="9.069444444444445,-11.805555555555555!", width="3.9583333333333335", height="1.1111111111111112", shape="ellipse", fontsize="17"];
+arquivo [label="Carregar ou salvar dados\n{apoio}", pos="9.069444444444445,-13.402777777777779!", width="3.9583333333333335", height="1.1111111111111112", shape="ellipse", fontsize="17"];
+}

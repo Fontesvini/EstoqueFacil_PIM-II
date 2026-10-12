@@ -1,0 +1,69 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 15
+skinparam dpi 220
+hide empty members
+class Usuario <<struct>> {
+  nome, login, senhaHash : vetores de char
+  nivel, ativo, erros : int
+  bloqueadoAte : long long
+}
+class Produto <<struct>> {
+  codigo, nome : vetores de char
+  categoria, fornecedor : vetores de char
+  quantidade, minimo, ativo : int
+}
+class Movimentacao <<struct>> {
+  produto, usuario, quantidade : int
+  tipo : char
+  data : vetor de char
+}
+class Dados <<struct>> {
+  versao : vetor de char
+  totalUsuarios : int
+  totalProdutos : int
+  totalMovimentacoes : int
+  usuarios : vetor de Usuario
+  produtos : vetor de Produto
+  movimentacoes : vetor de Movimentacao
+}
+class Autenticacao <<grupo de funcoes>> {
+  fazerLogin()
+  verificarPermissao(nivel, acao)
+  cadastrarUsuario()
+  administrarUsuarios()
+  alterarSenha()
+}
+class Estoque <<grupo de funcoes>> {
+  manterProduto(alterar)
+  mudarSituacaoProduto()
+  registrarMovimentacao(entrada)
+  verificarEstoqueBaixo()
+  consultarEstoque()
+  gerarRelatorio()
+}
+class ArquivoLocal <<grupo de funcoes>> {
+  carregarDados()
+  salvarArquivo(nome)
+  guardarAlteracao()
+  fazerBackup()
+}
+Usuario "1" -- "0..*" Movimentacao : registra
+Produto "1" -- "0..*" Movimentacao : recebe
+Dados *-- Usuario
+Dados *-- Produto
+Dados *-- Movimentacao
+Autenticacao ..> Dados
+Autenticacao ..> ArquivoLocal : grava contas
+Estoque ..> Autenticacao : confere permissao
+Estoque ..> Dados
+Estoque ..> ArquivoLocal : salva
+ArquivoLocal ..> Dados : le e grava
+note bottom
+  Structs e funções do arquivo estoquefacil.c.
+  Os grupos de funções não são classes da linguagem C.
+  Identificação interna pela posição no vetor.
+end note
+@enduml

@@ -1,0 +1,13 @@
+# Resumo
+
+Este Projeto Integrado Multidisciplinar apresenta o EstoqueFácil, um protótipo de controle de estoque para a Papelaria Ponto do Caderno, organização fictícia conduzida por um microempreendedor individual. O problema estudado é a dificuldade de acompanhar produtos quando entradas e saídas dependem da memória ou de anotações incompletas. O objetivo é organizar esses registros e avisar quando a quantidade atingir o estoque mínimo. A pesquisa é aplicada, exploratória e bibliográfica. O desenvolvimento relaciona requisitos, planejamento em dez sprints, modelagem dos dados, programação em C, infraestrutura de rede e cuidados com inclusão e privacidade. O programa utiliza menus numerados, login e quatro níveis de acesso. Usuários, produtos e movimentações são salvos em um arquivo local, sem servidor. A versão permite registrar entradas e saídas, consultar saldos, gerar relatórios e fazer backup. A verificação técnica em macOS confirmou os principais fluxos; os testes com o público previsto e no Windows permanecem pendentes. As limitações incluem uso por uma instância de cada vez, limites fixos de registros e hash de senha apenas didático. Espera-se apoiar a reposição, sem afirmar resultados comerciais ainda não medidos.
+
+Palavras-chave: Controle de estoque. Microempreendedor individual. Linguagem C. Arquivo local. Controle de acesso.
+
+# Abstract
+
+This multidisciplinary project presents EstoqueFácil, an inventory control prototype for Papelaria Ponto do Caderno, a fictional stationery shop run by an individual microentrepreneur. The problem studied is the difficulty of tracking products when stock movements depend on memory or incomplete notes. The objective is to organize these records and warn users when quantities reach the minimum stock level. The research is applied, exploratory and bibliographic. Development connects requirements, planning across ten sprints, data modeling, C programming, network infrastructure, and attention to inclusion and privacy. The program uses numbered menus, login and four access levels. Users, products and stock movements are saved in a local file without a server. The version supports incoming and outgoing stock records, stock queries, reports and backups. Technical verification on macOS confirmed the main workflows; testing with the intended audience and on Windows remains pending. Limitations include one running instance at a time, fixed record limits and an educational password hash. The expected benefit is to support replenishment decisions, without claiming commercial results that have not been measured.
+
+Keywords: Inventory control. Individual microentrepreneur. C language. Local file. Access control.
+
+[Índice do trabalho](README.md)

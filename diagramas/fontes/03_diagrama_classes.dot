@@ -1,0 +1,37 @@
+digraph G {
+graph [layout=neato, overlap=true, splines=line, outputorder=edgesfirst, bgcolor="white", pad="0.08", margin=0, notranslate=true];
+node [pin=true, fontname="Arial", fontsize=18, shape=box, fixedsize=true, margin=0, color="black", style="filled", fillcolor="white", penwidth=1.5];
+edge [fontname="Arial", fontsize=16, color="black", penwidth=1.35, arrowsize=0.8];
+_a [label="", pos="0.0,0.0!", width="0.0", height="0.0", shape="point", style="invis"];
+_z [label="", pos="11.666666666666666,-15.277777777777779!", width="0.0", height="0.0", shape="point", style="invis"];
+U [label="«struct» Usuario\n________________________\nnome, login, senhaHash : char[]\nnivel, ativo, erros : int\nbloqueadoAte : long long", pos="2.9444444444444446,-1.7361111111111112!", width="5.0", height="2.4166666666666665", shape="box", fontsize="18"];
+P [label="«struct» Produto\n________________________\ncodigo, nome : char[]\ncategoria, fornecedor : char[]\nquantidade, minimo, ativo : int", pos="8.402777777777779,-1.7361111111111112!", width="5.069444444444445", height="2.4166666666666665", shape="box", fontsize="18"];
+M [label="«struct» Movimentacao\n________________________________\nproduto, usuario, quantidade : int\ntipo : char     data : char[]", pos="5.694444444444445,-4.930555555555555!", width="6.666666666666667", height="1.9444444444444444", shape="box", fontsize="18"];
+U:s -> M:nw [arrowhead="none", label="registra", taillabel="1", headlabel="0..*", labeldistance="2.0"];
+P:s -> M:ne [arrowhead="none", label="recebe", taillabel="1", headlabel="0..*", labeldistance="2.0"];
+D [label="«struct» Dados\n___________________________________\nversao; contadores dos três vetores\nusuarios[]; produtos[]; movimentacoes[]", pos="5.694444444444445,-7.916666666666667!", width="7.222222222222222", height="1.9444444444444444", shape="box", fontsize="18"];
+D:n -> M:s [arrowhead="none", dir="both", arrowtail="diamond"];
+p1 [label="", pos="0.2361111111111111,-7.916666666666667!", width="0.0", height="0.0", shape="point", style="invis"];
+p2 [label="", pos="0.2361111111111111,-1.7361111111111112!", width="0.0", height="0.0", shape="point", style="invis"];
+D:w -> p1 [arrowhead="none", dir="both", arrowtail="diamond"];
+p1 -> p2 [arrowhead="none"];
+p2 -> U:w [arrowhead="none"];
+p3 [label="", pos="11.222222222222221,-7.916666666666667!", width="0.0", height="0.0", shape="point", style="invis"];
+p4 [label="", pos="11.222222222222221,-1.7361111111111112!", width="0.0", height="0.0", shape="point", style="invis"];
+D:e -> p3 [arrowhead="none", dir="both", arrowtail="diamond"];
+p3 -> p4 [arrowhead="none"];
+p4 -> P:e [arrowhead="none"];
+A [label="«grupo de funções» Autenticacao\n____________________________\nfazerLogin()\nverificarPermissao(nivel, acao)\ncadastrarUsuario()\nadministrarUsuarios()\nalterarSenha()", pos="2.9166666666666665,-11.38888888888889!", width="5.069444444444445", height="3.3333333333333335", shape="box", fontsize="17"];
+E [label="«grupo de funções» Estoque\n____________________________\nmanterProduto(alterar)\nmudarSituacaoProduto()\nregistrarMovimentacao(entrada)\nverificarEstoqueBaixo()\nconsultarEstoque()\ngerarRelatorio()", pos="8.541666666666666,-11.38888888888889!", width="5.069444444444445", height="3.3333333333333335", shape="box", fontsize="17"];
+F [label="«grupo de funções» ArquivoLocal\ncarregarDados(); salvarArquivo(nome)\nguardarAlteracao(); fazerBackup()", pos="5.694444444444445,-14.23611111111111!", width="7.5", height="1.4583333333333333", shape="box", fontsize="18"];
+E:w -> A:e [arrowhead="open", style="dashed"];
+A:s -> F:nw [arrowhead="open", style="dashed"];
+E:s -> F:ne [arrowhead="open", style="dashed"];
+p5 [label="", pos="11.458333333333334,-14.23611111111111!", width="0.0", height="0.0", shape="point", style="invis"];
+p6 [label="", pos="11.458333333333334,-8.333333333333334!", width="0.0", height="0.0", shape="point", style="invis"];
+F:e -> p5 [arrowhead="none", style="dashed"];
+p5 -> p6 [arrowhead="none", style="dashed"];
+p6 -> D:e [arrowhead="open", style="dashed"];
+A:n -> D:sw [arrowhead="open", style="dashed"];
+E:n -> D:se [arrowhead="open", style="dashed"];
+}

@@ -1,0 +1,41 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    background: '#ffffff'
+    fontFamily: Arial
+    fontSize: 16px
+---
+erDiagram
+    Usuario ||--o{ Movimentacao : registra
+    Produto ||--o{ Movimentacao : recebe
+    Usuario {
+        char nome "60 bytes"
+        char login "30 bytes; unico"
+        char senhaHash "9 bytes"
+        int nivel "1 a 4"
+        int ativo "0 ou 1"
+        int erros "0 a 3"
+        long_long bloqueadoAte "fim do bloqueio"
+    }
+    Produto {
+        char codigo "20 bytes; unico"
+        char nome "60 bytes"
+        char categoria "40 bytes"
+        char fornecedor "60 bytes"
+        int quantidade "maior ou igual a zero"
+        int minimo "maior ou igual a zero"
+        int ativo "0 ou 1"
+    }
+    Movimentacao {
+        int produto "posicao no vetor produtos"
+        int usuario "posicao no vetor usuarios"
+        int quantidade "maior que zero"
+        char tipo "E ou S"
+        char data "20 bytes; data e hora"
+    }
+%% Campos char com tamanho em bytes representam vetores de char.
+%% Todo texto reserva um byte final para o terminador nulo.
+%% long_long representa long long do C.
+%% Cada registro tem identificação interna pela posição no vetor.
+%% Unicidade e relações são verificadas pelo programa, sem gerenciador.

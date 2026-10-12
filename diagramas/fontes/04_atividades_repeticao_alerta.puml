@@ -1,0 +1,33 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+skinparam dpi 220
+start
+:Conferir usuário autenticado e permissão;
+if (Acesso permitido?) then (sim)
+  :i = 0; alertas = 0;
+else (não)
+  :Informar acesso negado;
+  stop
+endif
+while (i < totalProdutos?) is (sim)
+  :Ler produtos[i] na memória;
+  if (ativo e quantidade <= minimo?) then (sim)
+    :Exibir código, nome, quantidade e mínimo;
+    :Somar 1 ao contador alertas;
+  else (não)
+  endif
+  :Somar 1 a i;
+endwhile (não)
+if (alertas = 0?) then (sim)
+  :Informar que nenhum produto ativo está baixo;
+else (não)
+endif
+stop
+note right
+  Dados carregados antes do login.
+  Arquivo inválido impede a inicialização.
+end note
+@enduml

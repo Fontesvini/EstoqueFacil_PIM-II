@@ -1,0 +1,56 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 15
+skinparam dpi 220
+left to right direction
+actor "Usuário" as U <<abstrato>>
+actor "Consulta\nNível 4" as C
+actor "Operador de estoque\nNível 3" as O
+actor "Gerente\nNível 2" as G
+actor "Administrador\nNível 1" as A
+U <|-- C
+U <|-- O
+C <|-- G
+O <|-- G
+G <|-- A
+rectangle "EstoqueFácil" {
+  usecase "Fazer login" as Login
+  usecase "Validar credenciais" as Validar
+  usecase "Alterar a própria senha" as Senha
+  usecase "Consultar estoque" as Estoque
+  usecase "Receber alerta de\nestoque baixo" as Alerta
+  usecase "Gerar relatório" as Relatorio
+  usecase "Registrar movimentação" as Mov <<abstrato>>
+  usecase "Registrar entrada" as Entrada
+  usecase "Registrar saída" as Saida
+  usecase "Cadastrar produto" as Produto
+  usecase "Fazer backup" as Backup
+  usecase "Cadastrar usuário" as Cadastro
+  usecase "Alterar nível de acesso" as Nivel
+  usecase "Inativar usuário" as Inativar
+}
+U --> Login
+U --> Senha
+U --> Estoque
+U --> Alerta
+Login ..> Validar : <<include>>
+C --> Relatorio
+O --> Mov
+Mov <|-- Entrada
+Mov <|-- Saida
+G --> Produto
+G --> Backup
+A --> Cadastro
+A --> Nivel
+A --> Inativar
+note bottom of Relatorio
+  Inclui estoque e histórico em relatorio.txt.
+  Operador não herda Consulta.
+end note
+note bottom of Produto
+  Categoria e fornecedor são campos do produto.
+  Manutenção: Administrador e Gerente.
+end note
+@enduml

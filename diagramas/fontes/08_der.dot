@@ -1,0 +1,13 @@
+digraph G {
+graph [layout=neato, overlap=true, splines=line, outputorder=edgesfirst, bgcolor="white", pad="0.08", margin=0, notranslate=true];
+node [pin=true, fontname="Arial", fontsize=18, shape=box, fixedsize=true, margin=0, color="black", style="filled", fillcolor="white", penwidth=1.5];
+edge [fontname="Arial", fontsize=16, color="black", penwidth=1.35, arrowsize=0.8];
+_a [label="", pos="0.0,0.0!", width="0.0", height="0.0", shape="point", style="invis"];
+_z [label="", pos="11.11111111111111,-12.5!", width="0.0", height="0.0", shape="point", style="invis"];
+U [label="Usuario\n____________________________\nnome : char[60]\nlogin : char[30]  {único}\nsenhaHash : char[9]\nnivel : int  {1 a 4}\nativo : int  {0 ou 1}\nerros : int  {0 a 3}\nbloqueadoAte : long long", pos="2.8472222222222223,-2.8472222222222223!", width="5.208333333333333", height="5.208333333333333", shape="box", fontsize="20"];
+P [label="Produto\n____________________________\ncodigo : char[20]  {único}\nnome : char[60]\ncategoria : char[40]\nfornecedor : char[60]\nquantidade : int  {>= 0}\nminimo : int  {>= 0}\nativo : int  {0 ou 1}", pos="8.402777777777779,-2.8472222222222223!", width="5.208333333333333", height="5.208333333333333", shape="box", fontsize="20"];
+M [label="Movimentacao\n_____________________________________\nproduto : int  {posição em produtos[]}\nusuario : int  {posição em usuarios[]}\nquantidade : int  {> 0}\ntipo : char  {E ou S}\ndata : char[20]  {data e hora}", pos="5.625,-8.75!", width="7.986111111111111", height="3.75", shape="box", fontsize="20"];
+U:s -> M:nw [arrowhead="crowodot", label="registra", dir="both", arrowtail="teetee", fontsize="19"];
+P:s -> M:ne [arrowhead="crowodot", label="recebe", dir="both", arrowtail="teetee", fontsize="19"];
+nota [label="Um usuário ou produto pode ter 0..N movimentações.\nCada movimentação tem exatamente um usuário e um produto.\nIdentificação interna: posição no vetor. Texto: um byte final nulo.\nUnicidade e vínculos são verificados pelo código C.", pos="5.625,-11.597222222222221!", width="11.041666666666666", height="1.5277777777777777", shape="plaintext", fontsize="18", style=""];
+}

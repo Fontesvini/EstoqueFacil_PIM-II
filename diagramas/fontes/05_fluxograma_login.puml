@@ -1,0 +1,55 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+skinparam dpi 220
+start
+:tentativa = 1;
+while (tentativa <= 3?) is (sim)
+  :Ler login e validar seu formato;
+  :Se o formato for válido, ler senha;
+  if (Cancelamento ou falha de leitura?) then (sim)
+    :Retornar falha;
+    stop
+  endif
+  if (Login válido, conta existente,\nativa e fora do bloqueio?) then (sim)
+    :Guardar cópia anterior dos dados;
+    if (Prazo de bloqueio já venceu?) then (sim)
+      :Zerar erros e bloqueadoAte;
+    endif
+    :Calcular hash e comparar com senhaHash;
+    if (Senha correta?) then (sim)
+      :Zerar erros;
+    else (não)
+      :Somar 1 aos erros da conta;
+      if (erros = 3?) then (sim)
+        :bloqueadoAte = agora + 300 segundos;
+      endif
+    endif
+    :Salvar os dados locais;
+    if (Falha ao salvar?) then (sim)
+      :Recuperar cópia anterior e retornar falha;
+      stop
+    endif
+    if (Senha correta?) then (sim)
+      :Retornar a posição do usuário;
+      stop
+    else (não)
+      :Informar senha incorreta ou novo bloqueio;
+    endif
+  else (não)
+    :Informar identificador inválido, credenciais\nincorretas, conta inativa ou bloqueada;
+  endif
+  :tentativa = tentativa + 1;
+endwhile (não)
+:Encerrar sem autenticar;
+stop
+legend bottom
+  O laço permite até três rodadas por execução.
+  O contador de senhas erradas pertence a cada conta
+  e é salvo no arquivo, inclusive entre execuções.
+  Erros de conta inexistente, inativa ou ainda bloqueada
+  não aumentam esse contador. Não há espera automática.
+endlegend
+@enduml

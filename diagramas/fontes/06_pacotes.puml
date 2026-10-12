@@ -1,0 +1,24 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 17
+skinparam dpi 220
+top to bottom direction
+package "Interface\nMenus e leitura das escolhas" as I
+package "Autenticação e controle de acesso\nLogin e verificarPermissao" as A
+package "Regras de negócio\nProdutos, movimentações e relatórios" as R
+package "Acesso a dados\nVetores e leitura ou gravação de arquivo" as D
+artifact "Arquivo local\nestoque_local.dat" as F
+I ..> A : identificar usuário
+I ..> R : solicitar operação
+R ..> A : conferir permissão
+A ..> D : consultar e manter contas
+R ..> D : consultar e gravar
+D --> F : carregarDados e salvarArquivo
+note bottom of D
+  Responsabilidades das funções em estoquefacil.c.
+  Vetores compartilhados na struct Dados.
+  Não representam servidores ou arquivos C separados.
+end note
+@enduml

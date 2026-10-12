@@ -1,6 +1,6 @@
-# 7 REDES DE COMPUTADORES E SISTEMAS DISTRIBUÍDOS
+# 2.6 REDES DE COMPUTADORES E SISTEMAS DISTRIBUÍDOS
 
-## 7.1 Rede proposta para a papelaria
+## 2.6.1 Rede proposta para a papelaria
 
 O EstoqueFácil funciona em um computador, sem internet para login ou movimentação. A rede atende outras tarefas, como comunicação com fornecedores e envio de cópias. O celular de Marcos usa a rede, mas não acessa o programa.
 
@@ -8,7 +8,7 @@ A proposta reúne modem ou terminal de fibra, roteador com Wi-Fi, computador e c
 
 Na topologia estrela, as ligações convergem para um ponto central: o roteador. O computador usa cabo e o celular, Wi-Fi. É como organizar o acesso à loja por uma porta conhecida. Se o roteador parar, o estoque local ainda funciona no computador ligado.
 
-## 7.2 Endereçamento privado
+## 2.6.2 Endereçamento privado
 
 IP identifica uma interface na rede. Os exemplos do Quadro 11 pertencem à faixa privada da RFC 1918 (Rekhter et al., 1996). São propostas, sem instalação realizada.
 
@@ -26,7 +26,7 @@ Fonte: elaborado pelo grupo (2026).
 
 A máscara 255.255.255.0, ou /24, delimita a parte que identifica cada rede. DHCP pode distribuir endereços automaticamente; uma reserva pode manter o IP do computador. Isso não é exigido pelo programa local.
 
-## 7.3 Separação da rede do negócio e dos visitantes
+## 2.6.3 Separação da rede do negócio e dos visitantes
 
 A Figura 4 apresenta duas VLANs. VLAN é uma rede local virtual, separação lógica configurada em equipamentos compatíveis (Cisco, [s. d.]). A VLAN 10 atende ao negócio; a 20, aos clientes. A comparação é com balcão e fundos: visitar a loja não dá acesso aos registros internos.
 
@@ -34,7 +34,7 @@ O Wi-Fi de cada grupo precisa estar associado à rede correta. O firewall, que p
 
 Senhas próprias, atualizações do roteador e bloqueio de tela ajudam a proteger a infraestrutura. As permissões do EstoqueFácil não impedem copiar os arquivos diretamente pelo sistema operacional.
 
-## 7.4 Comunicação entre serviços e backup em nuvem
+## 2.6.4 Comunicação entre serviços e backup em nuvem
 
 As funções de C trocam dados dentro do programa e gravam no disco. Na rede, DHCP distribui endereços e DNS localiza serviços por nome. Eles não calculam o saldo.
 
@@ -42,7 +42,7 @@ Nuvem utiliza recursos externos pela rede. Administrador ou Gerente pode gerar b
 
 Uma cópia no próprio computador não resolve a perda do equipamento. O .dat contém contas e hashes, não é criptografado e deve ser restaurado no mesmo ambiente. Compilar o código em dois sistemas não garante transportar o arquivo entre eles.
 
-## 7.5 Evolução para vários dispositivos
+## 2.6.5 Evolução para vários dispositivos
 
 Arquitetura distribuída divide tarefas entre computadores. Para várias lojas, clientes poderiam solicitar operações a um servidor central. Uma API, interface entre programas, receberia pedidos por conexão protegida. O servidor conferiria login, permissão e saldo.
 

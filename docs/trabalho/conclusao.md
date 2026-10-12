@@ -1,4 +1,4 @@
-# 10 CONCLUSÃO
+# 3 CONCLUSÃO
 
 O EstoqueFácil atende ao objetivo de construir um protótipo compreensível para o controle de estoque da Papelaria Ponto do Caderno. A versão reúne login, níveis de acesso, cadastro de produtos, entradas e saídas, alerta de estoque baixo, relatório e backup. O uso de um arquivo local permite executar o exercício sem instalar um gerenciador de banco de dados.
 

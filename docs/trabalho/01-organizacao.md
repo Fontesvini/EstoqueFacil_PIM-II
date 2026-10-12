@@ -1,12 +1,12 @@
-# 2 CARACTERIZAÇÃO DA ORGANIZAÇÃO
+# 2.1 CARACTERIZAÇÃO DA ORGANIZAÇÃO
 
-## 2.1 Identificação, missão e público-alvo
+## 2.1.1 Identificação, missão e público-alvo
 
 A Papelaria Ponto do Caderno é uma organização fictícia criada pelo grupo para este projeto. Trata-se de um pequeno comércio de materiais de papelaria, situado em um bairro de [CIDADE]. O negócio é conduzido por Marcos Almeida, microempreendedor individual, com o apoio de uma funcionária, Júlia Santos. Renata Lima presta serviço externo de contabilidade. Os nomes e as situações apresentados fazem parte do cenário acadêmico.
 
 A missão da papelaria é oferecer materiais de uso diário com atendimento próximo dos moradores. Seus principais produtos são cadernos, canetas, lápis, borrachas, colas e envelopes. O público-alvo inclui estudantes, famílias e pequenos escritórios do bairro. A loja trabalha com produtos vendidos por unidade. Uma caixa comprada do fornecedor precisa ser convertida em unidades antes de entrar no estoque do sistema.
 
-## 2.2 Estrutura organizacional e responsabilidades
+## 2.1.2 Estrutura organizacional e responsabilidades
 
 Marcos cuida das compras e do atendimento, e Júlia auxilia no balcão e na reposição. A contadora não altera o estoque. A estrutura considera a orientação do Portal do Empreendedor sobre a contratação de um empregado pelo MEI (Brasil, [s. d.]).
 
@@ -25,7 +25,7 @@ Fonte: elaborado pelo grupo (2026).
 
 Júlia terá uma conta com um nível por vez. Uma mudança para Gerente será feita na mesma conta. Marcos já pode exercer a gestão com seu acesso de Administrador. As contas de demonstração serão apenas para teste.
 
-## 2.3 Processos de negócio e problemas identificados
+## 2.1.3 Processos de negócio e problemas identificados
 
 Processo de negócio é a sequência de atividades usada para atender uma necessidade da organização. Na papelaria, a reposição começa quando Marcos percebe que algum produto está acabando. Depois ele confere o que precisa comprar, recebe a mercadoria e guarda os itens. A venda faz o caminho contrário: o produto sai da prateleira e deveria ter sua quantidade descontada.
 
@@ -33,7 +33,7 @@ No cenário estudado, parte das compras é anotada em um caderno. As saídas nem
 
 Uma situação fictícia resume o problema: Marcos acreditava que ainda havia uma caixa de canetas azuis, mas as últimas unidades já tinham sido vendidas. Um cliente procurou esse produto e saiu sem comprar. O episódio ilustra o risco do controle incompleto; não é um resultado observado em uma pesquisa de campo.
 
-## 2.4 Justificativa e limites da solução
+## 2.1.4 Justificativa e limites da solução
 
 O EstoqueFácil é um programa de terminal, isto é, uma aplicação usada por menus e mensagens de texto. O usuário escolherá opções numeradas, como consultar estoque ou registrar entrada. O programa foi escrito em C, e os registros ficam no arquivo local estoque_local.dat, no próprio computador.
 

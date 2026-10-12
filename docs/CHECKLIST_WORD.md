@@ -17,16 +17,17 @@
 - [ ] Resumo, abstract e referências com espaço simples. Resumo com 150 a 500 palavras, seguido de palavras-chave; a versão entregue tem 179 palavras antes das palavras-chave.
 - [ ] Citações indiretas no sistema autor-data, com a referência correspondente. Se acrescentar citação direta longa ou nota, usar fonte 10 e espaço simples, conforme as orientações do manual.
 - [ ] Títulos de figuras e quadros acima; fonte abaixo. Imagens com proporção preservada, sem ultrapassar os 16 cm disponíveis na largura da página.
-- [ ] Legendas, fontes, quadros e código em tamanho 10. O código usa Courier New para facilitar a leitura.
-- [ ] Seções numeradas em algarismos arábicos. Referências e Apêndice A sem numeração de capítulo.
+- [ ] Legendas, fontes, quadros e pequenos exemplos de código em tamanho 10. Os exemplos usam Courier New para facilitar a leitura.
+- [ ] Seções numeradas em algarismos arábicos: 1 Introdução, 2 Desenvolvimento e 3 Conclusão. As oito etapas ficam nas subseções 2.1 a 2.8. Referências sem numeração de capítulo.
+- [ ] Introdução, desenvolvimento, conclusão e referências começam em páginas próprias. As subseções continuam na mesma página quando há espaço.
 - [ ] Numeração visível só a partir da introdução, no canto superior direito. A folha de rosto inicia a contagem e a capa não é contada. Nesta montagem, a introdução mostra 6.
 - [ ] Referências em ordem alfabética; títulos destacados em itálico de forma consistente.
 
 ## Paginação depois de editar
 
-Na renderização conferida, o arquivo possui 53 páginas físicas. O desenvolvimento vai da página numerada 7 à 36, totalizando 30 páginas. A conclusão começa na 37, as referências na 38 e o Apêndice A na 40. Capa, pré-textuais, introdução, conclusão, referências e apêndice ficam fora das 30 páginas de desenvolvimento.
+Na renderização conferida em 12/10/2026, o arquivo possui 39 páginas físicas. O desenvolvimento vai da página numerada 7 à 35, totalizando 29 páginas. A conclusão começa na 36 e as referências na 37. Capa, pré-textuais, introdução, conclusão e referências ficam fora das páginas de desenvolvimento. O apêndice de código foi retirado.
 
-O sumário tem links internos e números conferidos para esta versão. Ele é estático: mudanças de texto, nomes, fontes ou imagens podem exigir correção dos números. Depois de editar, confira cada entrada ou substitua o sumário por um automático do Word usando os estilos Título 1 e Título 2 do documento. Não suponha que F9 atualizará este sumário estático.
+O sumário é um campo automático do Word, com links internos e números já preenchidos e conferidos para esta versão. Ele usa os estilos Título 1, Título 2 e Título 3. Depois de editar, use Referências > Atualizar Sumário > Atualizar o índice inteiro e confira a visualização de impressão. A atualização deve incluir títulos e páginas.
 
 As fontes instaladas e a versão do Word também podem alterar quebras de página. Confira a visualização de impressão e mantenha o desenvolvimento entre 20 e 30 páginas. Não reduza a fonte do corpo para forçar o limite. Ajuste repetições de texto e quebras desnecessárias.
 
@@ -34,7 +35,7 @@ As quatro figuras principais já estão inseridas. Os demais diagramas ficam no 
 
 ## Arquivo de código
 
-O Apêndice A reproduz o fonte entregue, mas algumas linhas longas se dividem visualmente no Word. Compile [codigo/estoquefacil.c](../codigo/estoquefacil.c), em vez de copiar o código do documento. Se o grupo alterar o programa, atualize a explicação, os diagramas afetados e o apêndice.
+O código completo fica separado do Word. Compile [codigo/estoquefacil.c](../codigo/estoquefacil.c). O texto mantém apenas os pequenos exemplos necessários à explicação de Programação em C. Se o grupo alterar o programa, atualize a explicação e os diagramas afetados.
 
 
 ## Revisão do cronograma

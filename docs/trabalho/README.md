@@ -2,25 +2,25 @@
 
 [Abrir ou baixar o PIM em Word](PIM_II_EstoqueFacil.docx).
 
-O Word reúne capa, folha de rosto, resumo, abstract, sumário, introdução, oito etapas, conclusão, referências e o código completo no Apêndice A. O cronograma foi atualizado para dez semanas. A renderização conferida tem 53 páginas físicas, das quais 30 pertencem ao desenvolvimento.
+O Word reúne capa, folha de rosto, resumo, abstract, sumário, introdução, desenvolvimento com oito etapas, conclusão e referências. O código completo é entregue em arquivo separado. O cronograma tem dez semanas. A renderização conferida em 12/10/2026 tem 39 páginas físicas, das quais 29 pertencem ao desenvolvimento.
 
-Os capítulos abaixo permitem ler o conteúdo diretamente no GitHub. Eles seguem o texto do Word, com links para as figuras. A numeração começa em 1 na introdução; por isso a Etapa 1 corresponde ao capítulo 2.
+Os capítulos abaixo permitem ler o conteúdo diretamente no GitHub. Eles seguem o texto do Word, com links para as figuras. A introdução é a seção 1, o desenvolvimento é a seção 2 e a conclusão é a seção 3. As oito etapas são subseções de 2.1 a 2.8, para permitir que o texto continue na mesma página entre elas.
 
 | Parte | Conteúdo |
 |---|---|
 | Pré-textuais | [Resumo e abstract](resumo.md) |
 | Introdução | [Objetivo, metodologia e empresa](introducao.md) |
-| Etapa 1 | [2 CARACTERIZAÇÃO DA ORGANIZAÇÃO](01-organizacao.md) |
-| Etapa 2 | [3 PESQUISA CIENTÍFICA E INOVAÇÃO](02-pesquisa.md) |
-| Etapa 3 | [4 ENGENHARIA DE SOFTWARE ÁGIL](03-engenharia-agil.md) |
-| Etapa 4 | [5 MODELAGEM DE BANCO DE DADOS](04-modelagem-dados.md) |
-| Etapa 5 | [6 PROGRAMAÇÃO ESTRUTURADA EM C](05-programacao-c.md) |
-| Etapa 6 | [7 REDES DE COMPUTADORES E SISTEMAS DISTRIBUÍDOS](06-redes.md) |
-| Etapa 7 | [8 DIREITOS HUMANOS INCLUSÃO E SEGURANÇA](07-direitos-humanos.md) |
-| Etapa 8 | [9 INTEGRAÇÃO DAS MATÉRIAS](08-integracao.md) |
+| Etapa 1 | [2.1 CARACTERIZAÇÃO DA ORGANIZAÇÃO](01-organizacao.md) |
+| Etapa 2 | [2.2 PESQUISA CIENTÍFICA E INOVAÇÃO](02-pesquisa.md) |
+| Etapa 3 | [2.3 ENGENHARIA DE SOFTWARE ÁGIL](03-engenharia-agil.md) |
+| Etapa 4 | [2.4 MODELAGEM DE BANCO DE DADOS](04-modelagem-dados.md) |
+| Etapa 5 | [2.5 PROGRAMAÇÃO ESTRUTURADA EM C](05-programacao-c.md) |
+| Etapa 6 | [2.6 REDES DE COMPUTADORES E SISTEMAS DISTRIBUÍDOS](06-redes.md) |
+| Etapa 7 | [2.7 DIREITOS HUMANOS INCLUSÃO E SEGURANÇA](07-direitos-humanos.md) |
+| Etapa 8 | [2.8 INTEGRAÇÃO DAS MATÉRIAS](08-integracao.md) |
 | Conclusão | [Resultados, limites e próximos passos](conclusao.md) |
 | Referências | [Fontes consultadas](referencias.md) |
-| Apêndice A | [Código-fonte em C](../../codigo/estoquefacil.c), também reproduzido no Word |
+| Código separado | [Código-fonte em C](../../codigo/estoquefacil.c) |
 
 Os demais desenhos estão no [índice de diagramas](../../diagramas/README.md), com um [caderno separado em Word](../../diagramas/Caderno_de_diagramas_EstoqueFacil.docx).
 

@@ -18,7 +18,7 @@ Código e diagramas conferidos em 11 de outubro de 2026: programa simples em um 
 
 A conferência automática comparou 44 combinações de quatro níveis e onze ações entre a herança e associações do modelo de casos de uso e a função verificarPermissao. Todas coincidiram. O cadastro do diagrama agrupa a manutenção de produtos explicada em RF02 e no quadro de permissões.
 
-O documento tem dez regras de negócio, cinco requisitos funcionais e cinco não funcionais. O texto do Apêndice A é igual ao arquivo C entregue. As quatro figuras inseridas são as mesmas imagens correspondentes da pasta diagramas.
+O documento tem dez regras de negócio, cinco requisitos funcionais e cinco não funcionais. O código completo fica no arquivo C separado. As quatro figuras inseridas são as mesmas imagens correspondentes da pasta diagramas.
 
 ## Execução realmente verificada
 
@@ -32,14 +32,18 @@ Não foram executados: programa no Windows ou Linux; teste de usabilidade com qu
 
 ## Documentos e imagens
 
-As 53 páginas do PIM e as dez páginas do caderno foram renderizadas e revisadas visualmente. Os nove PNGs têm fundo branco e 2.400 pixels de largura. Os fontes e os SVGs acompanham as imagens.
+Na conferência anterior, as 53 páginas do PIM e as dez páginas do caderno foram renderizadas e revisadas visualmente. A revisão para impressão descrita abaixo substitui aquela versão do PIM. Os nove PNGs têm fundo branco e 2.400 pixels de largura. Os fontes e os SVGs acompanham as imagens.
 
 Os PNGs foram gerados com o motor Graphviz por Viz.js. O script de geração passou pela verificação de sintaxe e pelo aviso de ferramentas ausentes. Sua geração completa com os comandos nativos Graphviz, PlantUML e Mermaid CLI não foi executada neste ambiente. As imagens entregues já estão prontas.
 
 
 ## Revisão para o GitHub em 12/10/2026
 
-O código e os nove diagramas mantêm o conteúdo conferido anteriormente. A revisão atual ampliou o planejamento para dez semanas, organizou os capítulos em Markdown e criou um arquivo para cada encontro. O Word foi renderizado novamente: permanece com 53 páginas físicas e 30 de desenvolvimento. As páginas alteradas foram revisadas visualmente, e as demais foram comparadas com a versão já conferida.
+O código e os nove diagramas mantêm o conteúdo conferido anteriormente. A revisão ampliou o planejamento para dez semanas, organizou os capítulos em Markdown e criou um arquivo para cada encontro. A primeira montagem tinha 53 páginas físicas e 30 de desenvolvimento.
+
+Na revisão para impressão, as oito etapas passaram a ser subseções de 2 Desenvolvimento. Foram retiradas as quebras obrigatórias entre etapas e o apêndice com o código completo. As quatro figuras principais foram preservadas; os dois primeiros diagramas foram aproximados de suas explicações. As referências às seções e o sumário foram atualizados. O sumário agora é um campo automático do Word, com resultados preenchidos.
+
+A versão revisada tem 39 páginas físicas e 29 de desenvolvimento. A numeração fica visível a partir da introdução, que mostra 6 no canto superior direito. Todas as páginas foram conferidas na renderização, e os 54 títulos do sumário tiveram seus números comparados com as páginas correspondentes. Esta revisão altera a documentação; não representa uma nova rodada de testes do programa.
 
 Os relatos semanais não são evidências de teste. Antes de trocar `[AJUSTAR]` por uma afirmação, o grupo precisa confirmar o que aconteceu. Os resultados técnicos acima descrevem execuções reais no ambiente macOS de preparação, não uma avaliação com os participantes do grupo.
 

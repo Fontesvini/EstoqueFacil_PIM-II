@@ -1,6 +1,6 @@
-# 4 ENGENHARIA DE SOFTWARE ÁGIL
+# 2.3 ENGENHARIA DE SOFTWARE ÁGIL
 
-## 4.1 Regras de negócio
+## 2.3.1 Regras de negócio
 
 Regra de negócio é uma condição que o programa deve respeitar na rotina da papelaria. O grupo reuniu dez regras para o estoque, os usuários e a gravação.
 
@@ -26,7 +26,7 @@ RN10 - Gravação conjunta. Saldo e movimentação são confirmados juntos. Se a
 
 Um lançamento incorreto é corrigido por outra movimentação, mantendo o histórico. O responsável anota o motivo fora do programa, pois não há campo de observação.
 
-## 4.2 Requisitos funcionais
+## 2.3.2 Requisitos funcionais
 
 Requisito funcional descreve uma ação, como registrar as canetas recebidas. São cinco requisitos, com até três tarefas.
 
@@ -62,7 +62,7 @@ RF05 - Consultar estoque e gerar relatório. Acompanhar produtos e histórico co
 
 O backup fica associado ao RF05 e ao requisito de confiabilidade, sem criar um sexto requisito funcional.
 
-## 4.3 Requisitos não funcionais
+## 2.3.3 Requisitos não funcionais
 
 Requisito não funcional descreve uma qualidade e sua medição. Os cinco itens abaixo são critérios, não resultados já alcançados.
 
@@ -78,7 +78,7 @@ RNF04 - Confiabilidade. Preservar os registros confirmados e não deixar saldo s
 
 RNF05 - Compatibilidade. Funcionar em macOS e Windows, sem internet. Medir pela compilação com avisos habilitados e pelo mesmo roteiro nos dois sistemas. No Mac, usar clang sem biblioteca de banco. Registrar como não testado o ambiente ainda não executado.
 
-## 4.4 Quadro de permissões e casos de uso
+## 2.3.4 Quadro de permissões e casos de uso
 
 Caso de uso descreve uma interação para atingir um objetivo. O ator representa quem usa o sistema. Aqui, os atores correspondem aos níveis de acesso da papelaria.
 
@@ -99,11 +99,19 @@ Fonte: elaborado pelo grupo (2026).
 
 Consulta pode trocar sua senha, sem administrar contas. Não pode fazer backup, pois a cópia completa inclui dados que não aparecem nos relatórios.
 
-A Figura 1 reúne os casos de uso. UML é uma linguagem para representar sistemas. Na generalização, um ator herda interações de outro (Object Management Group, 2017). Consulta e Operador têm o ator comum Usuário, sem herdar um do outro. Gerente reúne ambos; Administrador herda Gerente. Assim, Operador continua sem relatórios.
+A Figura 1 reúne os casos de uso. UML é uma linguagem para representar sistemas. Na generalização, um ator herda interações de outro (Object Management Group, 2017).
+
+Figura 1 - Casos de uso e permissões do EstoqueFácil
+
+![Figura 1](../../diagramas/imagens/01_casos_de_uso_geral.png)
+
+Fonte: elaborado pelo grupo (2026).
+
+Consulta e Operador têm o ator comum Usuário, sem herdar um do outro. Gerente reúne ambos; Administrador herda Gerente. Assim, Operador continua sem relatórios.
 
 Fazer login inclui Validar credenciais. Entrada e Saída especializam Registrar movimentação. Os diagramas complementares ficam no caderno separado.
 
-## 4.5 Descrição textual dos casos de uso
+## 2.3.5 Descrição textual dos casos de uso
 
 Pré-condição é o que se exige antes da ação. Principal é o caminho esperado; alternativa é outra escolha; exceção impede a conclusão. Nos casos de negócio, sessão válida e permissão do Quadro 3 são pré-condições comuns. Falhas geram mensagens sem dados sensíveis.
 
@@ -135,13 +143,13 @@ CU12 - Gerar relatório. Atores: Administrador, Gerente e Consulta. Pré-condiç
 
 CU13 - Fazer backup. Atores: Administrador e Gerente. Pré-condição: destino local gravável. Principal: confirmar a gravação de backup_local.dat, que substitui a cópia anterior; salvar o conjunto completo e informar o sucesso. Alternativa: cancelar antes de iniciar. Exceções: acesso negado, falta de espaço, destino sem permissão ou falha na cópia. A recuperação será testada em outra pasta, preservando os dados em uso.
 
-## 4.6 Tratamento de erros nos diagramas
+## 2.3.6 Tratamento de erros nos diagramas
 
 No caderno, extend indica uma extensão por erro. Estoque insuficiente estende Registrar saída quando a quantidade ultrapassa o saldo. A seta parte do erro.
 
 Os nove erros são senha incorreta, usuário inativo, bloqueio após três tentativas, login já existente, acesso negado, produto não encontrado, quantidade inválida, estoque insuficiente e falha no arquivo. A última ocorre na leitura ou gravação; consultas usam a memória.
 
-## 4.7 Classes, atividades e arquitetura
+## 2.3.7 Classes, atividades e arquitetura
 
 O diagrama de classes agrupa dados e operações. Em C, Usuario, Produto, Movimentacao e Dados são structs, estruturas que reúnem campos. Autenticacao, Estoque e ArquivoLocal representam grupos de funções, não classes da linguagem.
 
@@ -153,13 +161,13 @@ A interface lê escolhas. Autenticação e controle de acesso conferem identidad
 
 Os pacotes mostram essas responsabilidades dentro do mesmo programa.
 
-## 4.8 Organização do trabalho com Scrum
+## 2.3.8 Organização do trabalho com Scrum
 
 Scrum organiza o trabalho em ciclos curtos com objetivo e revisão. O Product Owner cuida da ordenação do que será feito; o Scrum Master ajuda o grupo a aplicar o processo; a equipe de desenvolvimento constrói e verifica as entregas. A Daily Scrum dura quinze minutos, e os resultados são inspecionados ao final de cada sprint (Schwaber; Sutherland, 2020).
 
 Product Owner: [NOME]. Scrum Master: [NOME]. Desenvolvimento: [NOMES]. Esses papéis do grupo não concedem permissões no programa. A meta do produto é permitir consulta confiável do saldo e da necessidade de reposição.
 
-## 4.9 Backlog do produto e definição de pronto
+## 2.3.9 Backlog do produto e definição de pronto
 
 Backlog é a lista ordenada do trabalho. A história de usuário explica uma necessidade de quem usará o sistema. Pontos comparam esforço relativo, não horas. Prior. indica prioridade. As estimativas abaixo são propostas [AJUSTAR].
 
@@ -184,7 +192,7 @@ Pronto exige mensagem clara, permissão, teste principal e de falha, compilaçã
 
 Pesquisa e modelagem também ocupam sprints. Trata-se de práticas do Scrum adaptadas ao PIM, sem afirmar que toda semana gerou software utilizável.
 
-## 4.10 Planejamento das dez sprints
+## 2.3.10 Planejamento das dez sprints
 
 A sequência amplia o planejamento preliminar para dez semanas, de terça a segunda, entre 01/09 e 09/11/2026. [AJUSTAR: confirmar com o grupo; as datas não comprovam execução.]
 
@@ -202,14 +210,14 @@ Quadro 5 - Objetivos, tarefas e conclusão prevista por sprint
 | 6: 06/10 a 12/10 | Conferir movimentações e saldo | Revisar entradas, saídas e busca; testar saldo, histórico, gravação conjunta e reabertura. | Entrada funciona; saída excessiva falha sem alterar saldo nem histórico. |
 | 7: 13/10 a 19/10 | Revisar alertas e relatórios | Conferir limite do alerta; testar filtros por produto e período; revisar exportação TXT. | Alerta inclui igualdade; filtros conferidos; Operador sem relatório. |
 | 8: 20/10 a 26/10 | Revisar backup, rede e privacidade | Testar cópia e recuperação; revisar rede proposta, permissões, coleta mínima e limitações. | Backup recupera em pasta de teste; rede local e evolução distribuída diferenciadas. |
-| 9: 27/10 a 02/11 | Integrar e repetir o roteiro | Executar roteiro do grupo; registrar ambiente e resultados; revisar diagramas e apêndice. | Resultados registrados; falhas tratadas; testes não feitos marcados como pendentes. |
+| 9: 27/10 a 02/11 | Integrar e repetir o roteiro | Executar roteiro do grupo; registrar ambiente e resultados; revisar diagramas e código-fonte. | Resultados registrados; falhas tratadas; testes não feitos marcados como pendentes. |
 | 10: 03/11 a 09/11 | Revisar documentação e entrega | Revisar README, Word e links; preencher dados do grupo; validar registros e preparar entrega. | Arquivos abrem; links funcionam; pendências e limitações explícitas; versão conferida. |
 
 Fonte: elaborado pelo grupo (2026), a partir do planejamento preliminar. [AJUSTAR]
 
 Permissões e mensagens são consideradas desde o login. A oitava semana revisa esses cuidados no conjunto.
 
-## 4.11 Dailys, revisão, retrospectiva e Kanban
+## 2.3.11 Dailys, revisão, retrospectiva e Kanban
 
 O grupo adotou um acompanhamento de quinze minutos por semana, com três perguntas: o que fiz, o que vou fazer e o que me trava. Chamado aqui de daily semanal, é uma adaptação acadêmica: a Daily Scrum do guia ocorre a cada dia de trabalho. Sem atas, os registros são modelos [AJUSTAR]. As dez fichas ficam no repositório; abaixo estão alguns exemplos. Semanas futuras são planejamento, não reuniões realizadas.
 
@@ -255,12 +263,6 @@ Quadro 8 - Exemplo do quadro Kanban durante a sprint 5
 Fonte: elaborado pelo grupo (2026). Exemplo ilustrativo [AJUSTAR].
 
 Scrum dá o ritmo semanal, e Kanban mostra o fluxo no dia a dia.
-
-Figura 1 - Casos de uso e permissões do EstoqueFácil
-
-![Figura 1](../../diagramas/imagens/01_casos_de_uso_geral.png)
-
-Fonte: elaborado pelo grupo (2026).
 
 Ligação com as outras matérias: requisitos orientam os registros e as funções em C. A pesquisa justifica escolhas; permissões e mensagens apoiam Direitos Humanos; o backup liga o programa à infraestrutura.
 

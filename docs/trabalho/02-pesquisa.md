@@ -1,6 +1,6 @@
-# 3 PESQUISA CIENTÍFICA E INOVAÇÃO
+# 2.2 PESQUISA CIENTÍFICA E INOVAÇÃO
 
-## 3.1 Problema e objetivos da pesquisa
+## 2.2.1 Problema e objetivos da pesquisa
 
 A pergunta que orienta o projeto é: como um sistema local e simples pode ajudar uma pequena papelaria a acompanhar entradas e saídas e perceber a necessidade de reposição, respeitando as permissões de cada usuário?
 
@@ -8,7 +8,7 @@ O objetivo geral é desenvolver uma solução que organize o controle de estoque
 
 A pesquisa também considera a linguagem dos menus. Para Júlia, a mensagem deve indicar qual produto foi alterado e qual é o novo saldo.
 
-## 3.2 Metodologia
+## 2.2.2 Metodologia
 
 A pesquisa é aplicada porque busca construir uma solução para um problema definido. É exploratória porque procura compreender esse problema e delimitar uma proposta inicial. É bibliográfica porque utiliza publicações e documentação técnica para apoiar as decisões. Essas classificações seguem a discussão de Prodanov e Freitas (2013) sobre natureza, objetivos e procedimentos de pesquisa.
 
@@ -18,7 +18,7 @@ O documento preliminar do grupo, intitulado PIM 2 - EstoqueFácil ([NOMES DO GRU
 
 A tarefa de conversar com MEIs aparece no planejamento preliminar, mas não comprova entrevistas realizadas. Relatos de campo só serão acrescentados se o grupo os confirmar.
 
-## 3.3 Fundamentação e trabalhos relacionados
+## 2.2.3 Fundamentação e trabalhos relacionados
 
 Antes de abrir uma pequena loja, o dono precisa conhecer o bairro e o que as pessoas procuram. A pesquisa cumpre um papel parecido neste projeto: ajuda a entender o problema antes de escolher os menus e os dados que serão guardados. A decisão de usar C já faz parte do escopo acadêmico. A pesquisa orienta como usar essa linguagem em uma solução que o grupo consiga explicar.
 
@@ -38,7 +38,7 @@ Fonte: elaborado pelo grupo (2026), com base em The Document Foundation ([s. d.]
 
 Uma planilha poderia atender parte da necessidade, mas alguém precisaria preparar as fórmulas e a organização dos lançamentos. O sistema proposto deixa esse caminho definido: escolher o produto, informar a quantidade e confirmar a operação. A vantagem esperada está nessa adaptação à rotina da loja, e não na criação de um recurso inexistente.
 
-## 3.4 Justificativa científica e diferenciais
+## 2.2.4 Justificativa científica e diferenciais
 
 A justificativa do projeto é propor uma solução verificável para o controle incompleto. O grupo testará registros, saldos e alertas com resultados esperados definidos antes da execução.
 
@@ -48,7 +48,7 @@ A inovação proposta é uma mudança na forma de trabalhar da organização fic
 
 O funcionamento sem internet se aplica às tarefas do estoque. Já enviar uma cópia do arquivo de dados para um serviço de nuvem depende de conexão e será discutido como procedimento de backup. Backup é uma cópia de segurança que permite recuperar dados se o arquivo principal for perdido. Não será prometida sincronização automática entre computadores.
 
-## 3.5 Forma de avaliação e limites da pesquisa
+## 2.2.5 Forma de avaliação e limites da pesquisa
 
 A avaliação terá testes funcionais, que conferem as regras, e observação de uso, que procura dificuldades com os menus. Cada tarefa indicará produto e quantidade.
 

@@ -1,6 +1,6 @@
 # Backlog do EstoqueFácil
 
-Backlog é a lista do trabalho que precisa ser organizado. As histórias abaixo descrevem quem precisa da função, o que deseja fazer e por quê. Pontos comparam o esforço entre tarefas; não são horas nem notas. Prioridades e estimativas precisam da confirmação do grupo `[AJUSTAR]`.
+Backlog é a lista do trabalho que precisa ser organizado. As histórias abaixo descrevem quem precisa da função, o que deseja fazer e por quê. Pontos comparam o esforço entre tarefas; não são horas nem notas. 
 
 Quadro 4 - Backlog do produto
 
@@ -17,7 +17,7 @@ Quadro 4 - Backlog do produto
 | H09 | Como contadora, quero consultar e exportar o histórico, para conferir movimentações. | Média | 3 | Filtros por produto e período funcionam; Operador não acessa. |
 | H10 | Como dono do MEI, quero fazer backup, para recuperar os dados se houver perda. | Média | 3 | Cópia abre em teste; só Administrador e Gerente executam. |
 
-Fonte: elaborado pelo grupo (2026). [AJUSTAR: confirmar prioridades e estimativas com o grupo.]
+Fonte: elaborado pelo grupo (2026). 
 
 Pronto exige mensagem clara, permissão, teste principal e de falha, compilação sem avisos e documentação correspondente. Para texto, exige fonte e requisitos conferidos.
 

@@ -579,7 +579,6 @@ void fazerBackup(void) {
     puts(salvarArquivo("backup_local.dat") ? "Backup salvo." : "Falha no backup. A copia anterior foi mantida.");
 }
 
-/* 6. Dados de exemplo, apenas para banco vazio. */
 int criarDemo(void) {
     const char *logins[4] = {"admin", "gerente", "operador", "consulta"};
     if (dados.totalUsuarios != 0) { puts("Ja existem dados. Execute sem --demo."); return 0; }

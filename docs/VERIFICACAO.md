@@ -62,7 +62,7 @@ As regras devolvem um Resultado em vez de escrever na tela. As permissões são 
 
 Verificação realizada no macOS: compilação com -std=c11 -Wall -Wextra -Wpedantic -Werror, sem avisos. A versão anterior e a nova receberam os mesmos roteiros de entrada, cobrindo demonstração, primeiro Administrador, login, senha incorreta, bloqueio, usuário inativo, quatro níveis, cadastro e alteração de usuários, troca de senha, produtos, entradas, saídas, estoque insuficiente, produto inativo, relatório com período, backup e argumentos inválidos. As saídas e o relatório gerado foram idênticos. Um arquivo de dados criado pela versão anterior foi aberto pela nova.
 
-As fontes dos diagramas 03 e 06 foram atualizadas para os nomes dos módulos. Os PNGs e SVGs correspondentes precisam ser regenerados, e o Word ainda precisa receber as seções revisadas, conforme o [checklist](CHECKLIST_WORD.md).
+As fontes dos diagramas 03 e 06 foram atualizadas para os nomes dos módulos. Os SVGs foram regenerados com Viz.js (motor neato, como os demais) e os PNGs foram convertidos com resvg, mantendo 2.400 pixels de largura e as mesmas alturas anteriores; as duas imagens foram conferidas visualmente. O Word e o caderno ainda precisam receber as seções e figuras revisadas, conforme o [checklist](CHECKLIST_WORD.md).
 
 O passo a passo e os resultados esperados de cada requisito estão no [guia de testes do código](../codigo/LEIA_ME.md). Os requisitos completos estão na [Etapa 3](trabalho/03-engenharia-agil.md).
 

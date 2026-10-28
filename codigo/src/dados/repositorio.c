@@ -1,12 +1,43 @@
+#define _POSIX_C_SOURCE 200809L
 #include <errno.h>
+#include <stdlib.h>
 #include <string.h>
 #ifdef _WIN32
 #include <windows.h>
+#include <direct.h>
+#else
+#include <unistd.h>
 #endif
 #include "dados/repositorio.h"
 
 Dados dados;
 static Dados antes;
+static char pasta[4096] = ".";
+
+int usarPastaDoPrograma(const char *programa) {
+    char caminho[4096], *barra;
+#ifdef _WIN32
+    char *outra;
+    if (_fullpath(caminho, programa, sizeof caminho) == NULL) return 0;
+    barra = strrchr(caminho, '\\');
+    outra = strrchr(caminho, '/');
+    if (outra > barra) barra = outra;
+    if (barra == NULL) return 0;
+    *barra = '\0';
+    if (_chdir(caminho) != 0) return 0;
+#else
+    /* Sem barra, o programa veio do PATH: fica a pasta atual. */
+    if (strchr(programa, '/') == NULL || realpath(programa, caminho) == NULL) return 0;
+    barra = strrchr(caminho, '/');
+    if (barra == caminho) barra[1] = '\0';
+    else *barra = '\0';
+    if (chdir(caminho) != 0) return 0;
+#endif
+    snprintf(pasta, sizeof pasta, "%s", caminho);
+    return 1;
+}
+
+const char *pastaDosDados(void) { return pasta; }
 
 static int salvarArquivo(const char *nome) {
     char temporario[80];

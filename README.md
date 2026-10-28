@@ -29,21 +29,13 @@ Por exemplo: CAN001 tem três canetas e mínimo de cinco. O alerta aparece. Se e
 
 ## Como testar no Mac
 
-Na página do repositório, use **Code > Download ZIP** e extraia a pasta. No VS Code, abra a pasta `codigo` e depois **Terminal > Novo Terminal**. Execute:
+Na página do repositório, use **Code > Download ZIP** e extraia a pasta. Depois:
 
-```sh
-bash rodar.sh --demo
-```
+- **Dois cliques** em `EstoqueFacil.command`, no Finder. Na primeira vez, se o Mac pedir confirmação, use botão direito > **Abrir**.
+- Ou abra a pasta no **VS Code** e aperte **F5**.
+- Ou, no terminal, dentro da pasta `codigo`, execute `bash rodar.sh`.
 
-Entre com `admin` e a senha `teste123`. A senha não aparece enquanto você digita. Na demonstração também existem os logins `gerente`, `operador` e `consulta`, todos com `teste123`. Essas contas são apenas para teste.
-
-Depois da primeira execução, use:
-
-```sh
-bash rodar.sh
-```
-
-O modo `--demo` não substitui dados existentes. Para começar sem demonstração, execute em uma pasta sem arquivo de dados: o programa pede o cadastro do primeiro Administrador. Se faltar o compilador, o script orienta a instalação das Xcode Command Line Tools. Ele não instala nada sozinho. Há instruções de compilação manual e uma nota sobre Windows no [guia do código](codigo/LEIA_ME.md).
+Na primeira vez, o programa pede o cadastro do primeiro Administrador. Cada cadastro e movimentação é salvo na hora em `codigo/estoque_local.dat`, então tudo continua lá quando você abrir de novo. Para testar com contas de exemplo (`admin`, `gerente`, `operador` e `consulta`, senha `teste123`), use `bash rodar.sh --demo` antes de ter dados. Se faltar o compilador, o script orienta a instalação das Xcode Command Line Tools. Ele não instala nada sozinho. Há instruções de compilação manual e uma nota sobre Windows no [guia do código](codigo/LEIA_ME.md).
 
 ## Quem pode fazer o quê
 
@@ -63,6 +55,7 @@ O Operador não gera relatório. Essa diferença também aparece nos diagramas e
 
 ```text
 PIM-II/
+├── EstoqueFacil.command    # Dois cliques para abrir o programa no Mac
 ├── codigo/                 # Script e instruções de execução
 │   └── src/                # Fonte C em camadas: apresentacao, negocio, seguranca, dados e comum
 ├── docs/                   # Explicações, verificação e checklist

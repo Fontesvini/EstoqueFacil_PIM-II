@@ -2,7 +2,7 @@
 
 O código completo está na pasta **src**, organizado em camadas: apresentação, regras de negócio, autenticação e controle de acesso, e acesso a dados. Basta essa pasta e um compilador C. Não usa SQLite, comandos SQL, servidor, biblioteca externa ou instalação de banco de dados.
 
-Os dados ficam em structs, que agrupam informações, e vetores, que guardam vários registros do mesmo tipo. O programa salva esses vetores em **estoque_local.dat**, criado automaticamente na pasta `codigo`, ao lado do executável. Cada alteração é gravada na hora. É um arquivo local de dados, sem um sistema gerenciador de banco.
+Os dados ficam em structs, que agrupam informações, e vetores, que guardam vários registros do mesmo tipo. O programa salva esses vetores em **estoque_local.dat**, criado automaticamente na pasta `codigo/output`. Cada alteração é gravada na hora. É um arquivo local de dados, sem um sistema gerenciador de banco.
 
 ## Como abrir o programa
 
@@ -12,13 +12,13 @@ Escolha um dos jeitos abaixo. Todos compilam o código, se precisar, e abrem o p
 - **VS Code:** abra a pasta principal do projeto e aperte **F5**, ou **Cmd+Shift+B**. O botão ▶ do Code Runner também funciona, com qualquer arquivo `.c` aberto.
 - **Terminal:** na pasta `codigo`, execute `bash rodar.sh`.
 
-Cada cadastro, movimentação ou alteração é gravado na hora em `codigo/estoque_local.dat`, que funciona como o banco de dados local. O arquivo fica sempre ao lado do programa, não importa de onde ele seja aberto. Ao abrir, o programa mostra o caminho completo onde está salvando. Para fechar, use a opção 0.
+Cada cadastro, movimentação ou alteração é gravado na hora em `codigo/output/estoque_local.dat`, que funciona como o banco de dados local. Na mesma pasta `output` ficam o `relatorio.txt` e o `backup_local.dat`. O programa cria essa pasta sozinho e sempre usa a mesma, não importa de onde seja aberto. Ao abrir, o programa mostra o caminho completo onde está salvando. Para fechar, use a opção 0.
 
 Na primeira vez, sem dados, o programa pede o cadastro do primeiro Administrador. Para testar com dados de exemplo, rode `bash rodar.sh --demo` numa pasta sem `estoque_local.dat`: são criados os logins `admin`, `gerente`, `operador` e `consulta`, todos com a senha `teste123`. A senha não aparece enquanto você digita.
 
 Na demonstração, há uma conta de cada nível: `admin`, `gerente`, `operador` e `consulta`. Todas usam `teste123`, somente para teste. CAN001 começa com 3 unidades e mínimo 5; CAD001 começa com 10 e mínimo 3. Por isso, a caneta já aparece no alerta.
 
-A demonstração só pode ser criada quando ainda não há dados. Para começar do zero, feche o programa e renomeie `estoque_local.dat` (por exemplo, para `estoque_antigo.dat`). Na próxima abertura, o programa pedirá o cadastro do primeiro Administrador.
+A demonstração só pode ser criada quando ainda não há dados. Para começar do zero, feche o programa e renomeie `output/estoque_local.dat` (por exemplo, para `estoque_antigo.dat`). Na próxima abertura, o programa pedirá o cadastro do primeiro Administrador.
 
 ### Se o Mac ainda não tiver o compilador
 
@@ -114,7 +114,7 @@ Use uma instância por vez. Há espaço para 50 usuários, mil produtos e dez mi
 
 O arquivo .dat é binário e depende do formato das structs do compilador. Use o backup no mesmo ambiente; não há garantia de transportar esse arquivo entre Mac e Windows. O código pode ser compilado nos dois sistemas, mas os dados não têm um formato de intercâmbio. O arquivo também não é criptografado.
 
-Para recuperar, feche o programa, guarde uma cópia do `estoque_local.dat` atual e copie `backup_local.dat` com o nome `estoque_local.dat`, na pasta `codigo`.
+Para recuperar, feche o programa, guarde uma cópia do `estoque_local.dat` atual e copie `backup_local.dat` com o nome `estoque_local.dat`, na pasta `codigo/output`.
 
 ## Conferência manual dos requisitos
 

@@ -20,12 +20,12 @@ void telaRelatorio(void) {
     }
     if (!confirmar("Gerar relatorio.txt? Substitui o relatorio anterior. (s/N): ")) return;
     if (mostrarResultado(gerarRelatorio(tipo, codigo, inicio, fim)))
-        puts("Relatorio salvo em relatorio.txt. Abra esse arquivo para consultar.");
+        puts("Relatorio salvo em output/relatorio.txt. Abra esse arquivo para consultar.");
 }
 
 void telaBackup(void) {
     if (!permitir(ACAO_BACKUP) || !confirmar("Salvar backup_local.dat? Substitui o backup anterior. (s/N): ")) return;
-    if (mostrarResultado(fazerBackup())) puts("Backup salvo.");
+    if (mostrarResultado(fazerBackup())) puts("Backup salvo em output/backup_local.dat.");
 }
 
 int telaCriarDemo(void) {

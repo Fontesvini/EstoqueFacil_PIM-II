@@ -14,9 +14,9 @@
    estes vetores entre iniciarAlteracao e confirmarAlteracao. */
 extern Dados dados;
 
-/* Usa a pasta onde está o executável para todos os arquivos. Assim os dados
-   ficam sempre no mesmo lugar, de qualquer pasta que o programa seja aberto.
-   Devolve 0 se não conseguir; nesse caso fica a pasta atual. */
+/* Usa a pasta output/, ao lado do executável, para todos os arquivos (dados,
+   backup e relatório) e a cria se não existir. Assim tudo fica no mesmo lugar,
+   de qualquer pasta que o programa seja aberto. Devolve 0 se não conseguir. */
 int usarPastaDoPrograma(const char *programa);
 /* Caminho completo da pasta onde os arquivos são salvos. */
 const char *pastaDosDados(void);

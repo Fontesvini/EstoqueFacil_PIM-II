@@ -5,16 +5,26 @@
 #ifdef _WIN32
 #include <windows.h>
 #include <direct.h>
+#define mudarPasta _chdir
+#define criarPasta(nome) _mkdir(nome)
+#define pastaAtual _getcwd
 #else
 #include <unistd.h>
+#include <sys/stat.h>
+#define mudarPasta chdir
+#define criarPasta(nome) mkdir(nome, 0755)
+#define pastaAtual getcwd
 #endif
 #include "dados/repositorio.h"
+
+#define PASTA_SAIDA "output"
 
 Dados dados;
 static Dados antes;
 static char pasta[4096] = ".";
 
-int usarPastaDoPrograma(const char *programa) {
+/* Entra na pasta onde está o executável. Devolve 0 se não conseguir. */
+static int irParaPastaDoPrograma(const char *programa) {
     char caminho[4096], *barra;
 #ifdef _WIN32
     char *outra;
@@ -24,17 +34,22 @@ int usarPastaDoPrograma(const char *programa) {
     if (outra > barra) barra = outra;
     if (barra == NULL) return 0;
     *barra = '\0';
-    if (_chdir(caminho) != 0) return 0;
 #else
     /* Sem barra, o programa veio do PATH: fica a pasta atual. */
     if (strchr(programa, '/') == NULL || realpath(programa, caminho) == NULL) return 0;
     barra = strrchr(caminho, '/');
     if (barra == caminho) barra[1] = '\0';
     else *barra = '\0';
-    if (chdir(caminho) != 0) return 0;
 #endif
-    snprintf(pasta, sizeof pasta, "%s", caminho);
-    return 1;
+    return mudarPasta(caminho) == 0;
+}
+
+int usarPastaDoPrograma(const char *programa) {
+    int ok = irParaPastaDoPrograma(programa);
+    /* Dados, backup e relatório ficam juntos em output/, ao lado do executável. */
+    if ((criarPasta(PASTA_SAIDA) != 0 && errno != EEXIST) || mudarPasta(PASTA_SAIDA) != 0) ok = 0;
+    if (pastaAtual(pasta, sizeof pasta) == NULL) snprintf(pasta, sizeof pasta, ".");
+    return ok;
 }
 
 const char *pastaDosDados(void) { return pasta; }

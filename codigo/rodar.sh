@@ -11,5 +11,6 @@ if [ "$(uname -s)" = Darwin ] && ! xcrun --find clang >/dev/null 2>&1; then
     printf '%s\n' 'As ferramentas de desenvolvimento do Mac não estão disponíveis.' 'Execute: xcode-select --install'
     exit 1
 fi
-clang -std=c11 -Wall -Wextra -Wpedantic -Werror estoquefacil.c -o estoquefacil
+# Cada camada fica em uma pasta de src/. -Isrc permite incluir "camada/arquivo.h".
+clang -std=c11 -Wall -Wextra -Wpedantic -Werror -Isrc src/main.c src/*/*.c -o estoquefacil
 exec ./estoquefacil "$@"

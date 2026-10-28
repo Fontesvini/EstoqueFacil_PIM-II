@@ -1,6 +1,6 @@
 # EstoqueFácil simples, sem SQL
 
-O código completo está em **estoquefacil.c**. Basta esse arquivo e um compilador C. Não usa SQLite, comandos SQL, servidor, biblioteca externa ou instalação de banco de dados.
+O código completo está na pasta **src**, organizado em camadas: apresentação, regras de negócio, autenticação e controle de acesso, e acesso a dados. Basta essa pasta e um compilador C. Não usa SQLite, comandos SQL, servidor, biblioteca externa ou instalação de banco de dados.
 
 Os dados ficam em structs, que agrupam informações, e vetores, que guardam vários registros do mesmo tipo. O programa salva esses vetores em **estoque_local.dat**, criado automaticamente na pasta de execução. É um arquivo local de dados, sem um sistema gerenciador de banco.
 
@@ -24,7 +24,7 @@ Nas próximas vezes, execute sem o modo de demonstração:
 bash rodar.sh
 ```
 
-A demonstração só pode ser criada quando ainda não há dados. Se aparecer a mensagem de que já existem dados, execute sem `--demo`. Para começar vazio sem mexer no teste anterior, copie o arquivo C e o script para outra pasta e execute sem `--demo`. O programa pedirá o cadastro do primeiro Administrador.
+A demonstração só pode ser criada quando ainda não há dados. Se aparecer a mensagem de que já existem dados, execute sem `--demo`. Para começar vazio sem mexer no teste anterior, copie a pasta `src` e o script para outra pasta e execute sem `--demo`. O programa pedirá o cadastro do primeiro Administrador.
 
 ### Se o Mac ainda não tiver o compilador
 
@@ -41,20 +41,22 @@ As extensões C/C++ e CodeLLDB podem ajudar a editar e depurar no VS Code, mas n
 ### Compilar sem o script
 
 ```sh
-clang -std=c11 -Wall -Wextra -Wpedantic estoquefacil.c -o estoquefacil
+clang -std=c11 -Wall -Wextra -Wpedantic -Isrc src/main.c src/*/*.c -o estoquefacil
 ./estoquefacil --demo
 ```
+
+`-Isrc` indica onde procurar os arquivos `.h`. Por isso, os `#include` usam o nome da camada, como `"dados/repositorio.h"`. `src/*/*.c` reúne os arquivos de todas as camadas.
 
 ### Nota para Windows
 
 Com GCC já instalado, use no terminal da pasta:
 
 ```sh
-gcc -std=c11 -Wall -Wextra estoquefacil.c -o estoquefacil.exe
+gcc -std=c11 -Wall -Wextra -Isrc src/main.c src/comum/validacao.c src/dados/repositorio.c src/seguranca/acesso.c src/seguranca/contas.c src/negocio/produtos.c src/negocio/movimentacoes.c src/negocio/relatorios.c src/negocio/demo.c src/apresentacao/entrada.c src/apresentacao/mensagens.c src/apresentacao/menu.c src/apresentacao/telas_usuarios.c src/apresentacao/telas_estoque.c src/apresentacao/telas_relatorios.c -o estoquefacil.exe
 .\estoquefacil.exe --demo
 ```
 
-O arquivo C é o mesmo. O script `rodar.sh` foi preparado para Mac. A execução no Windows ainda precisa ser testada; não foi confirmada nesta entrega.
+Os arquivos aparecem um a um porque o terminal do Windows nem sempre expande `*`. O código-fonte é o mesmo. O script `rodar.sh` foi preparado para Mac. A execução no Windows ainda precisa ser testada; não foi confirmada nesta entrega.
 
 ## Os cinco requisitos funcionais
 
@@ -82,11 +84,23 @@ O hash simples não é proteção adequada para senhas reais. Um sistema de prod
 
 ## Para entender o código
 
-Comece pelo `main`, no fim do arquivo. Ele carrega os dados, chama o login e mostra o menu. Depois leia `fazerLogin`, `verificarPermissao`, `manterProduto` e `registrarMovimentacao`. Os comentários dividem o arquivo por assunto.
+O programa segue uma arquitetura em camadas. Cada pasta de `src` é uma camada, e uma camada só chama as de baixo:
 
-`fread` lê o arquivo local e `fwrite` grava os registros. `antes = dados` guarda uma cópia da situação anterior para desfazer uma alteração se a gravação falhar. Categoria e fornecedor são textos dentro do produto, sem tabelas separadas.
+| Camada | Pasta | Responsabilidade |
+|---|---|---|
+| 1. Apresentação | `apresentacao/` | Menus, telas, leitura do teclado e mensagens. Não grava arquivos. |
+| 2. Regras de negócio | `negocio/` | Produtos, saldo, movimentações, alerta, relatório, backup e demonstração. |
+| 3. Autenticação e controle de acesso | `seguranca/` | Login, bloqueio, sessão, permissões, contas e hash da senha. |
+| 4. Acesso a dados | `dados/` | Leitura e gravação de `estoque_local.dat`, cópia para desfazer e backup. |
+| Comum | `comum/` | Structs, códigos de `Resultado` e validações usadas por todas. |
 
-O trecho de ocultação da senha usa funções do terminal e é mais específico. Ele ficou isolado em `lerSenha`. No Mac usa termios; no Windows, conio.h aparece somente no bloco de Windows. A troca do arquivo no Windows usa [MoveFileExA](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexa).
+Comece por `main.c`. Ele carrega os dados, chama o login e mostra o menu. Depois leia `telaLogin` e `autenticar`, `verificarPermissao`, `telaManterProduto` e `salvarProduto`, `telaMovimentacao` e `registrarMovimentacao`. Os arquivos `.h` explicam o que cada módulo oferece.
+
+As regras não escrevem na tela: devolvem um `Resultado`, e `mostrarResultado` exibe a mensagem. As regras também conferem a permissão, mesmo quando o menu já conferiu. Assim, nenhuma operação depende só da tela para ser protegida.
+
+`fread` lê o arquivo local e `fwrite` grava os registros. `iniciarAlteracao` guarda uma cópia da situação anterior; `confirmarAlteracao` grava e, se a gravação falhar, desfaz a alteração. Categoria e fornecedor são textos dentro do produto, sem tabelas separadas.
+
+O trecho de ocultação da senha usa funções do terminal e é mais específico. Ele ficou isolado em `lerSenha`, no arquivo `apresentacao/entrada.c`. No Mac usa termios; no Windows, conio.h aparece somente no bloco de Windows. A troca do arquivo no Windows usa [MoveFileExA](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexa).
 
 ## Teste rápido
 
@@ -97,6 +111,8 @@ O trecho de ocultação da senha usa funções do terminal e é mais específico
 5. Como `gerente`, use a opção 9 para backup. Como `admin`, use a opção 10 para usuários.
 
 Foram testados no Mac: compilação sem avisos, login, bloqueio persistente, quatro níveis, cadastro e inativação, movimentações, alerta, relatório, backup, recuperação e falha real de gravação. O bloqueio expirado foi testado com prazo antecipado somente no arquivo de teste. O teste com pessoas ainda não foi realizado.
+
+Na reorganização em camadas, em 28/10/2026, a versão nova e a anterior receberam os mesmos roteiros de entrada no Mac: login, bloqueio, quatro níveis, usuários, senha, produtos, movimentações, relatório, backup, demonstração e primeiro Administrador. As saídas foram idênticas. As structs não mudaram, então um `estoque_local.dat` da versão anterior continua sendo aberto.
 
 ## Limites desta versão
 

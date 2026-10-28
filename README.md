@@ -4,7 +4,7 @@ O EstoqueFácil é o nosso projeto do segundo semestre de Análise e Desenvolvim
 
 Usamos uma empresa fictícia, a Papelaria Ponto do Caderno. O dono anota parte das compras em um caderno e nem sempre percebe que um produto acabou. A ideia do programa é ajudar nessa conferência: registrar o que entrou, o que saiu e o que precisa ser reposto.
 
-Nós mantivemos o código em um único arquivo para facilitar a leitura. Os dados ficam no próprio computador, em `estoque_local.dat`. Não é necessário instalar banco de dados, e o uso do estoque não depende de internet.
+O código é organizado em camadas: apresentação, regras de negócio, autenticação e controle de acesso, e acesso a dados. Cada camada fica em uma pasta, o que facilita encontrar e conferir cada parte. Os dados ficam no próprio computador, em `estoque_local.dat`. Não é necessário instalar banco de dados, e o uso do estoque não depende de internet.
 
 ## Por onde começar
 
@@ -63,7 +63,8 @@ O Operador não gera relatório. Essa diferença também aparece nos diagramas e
 
 ```text
 PIM-II/
-├── codigo/                 # Fonte C, script e instruções de execução
+├── codigo/                 # Script e instruções de execução
+│   └── src/                # Fonte C em camadas: apresentacao, negocio, seguranca, dados e comum
 ├── docs/                   # Explicações, verificação e checklist
 │   └── trabalho/           # PIM em Word e capítulos para ler no GitHub
 ├── diagramas/
@@ -86,7 +87,7 @@ Os relatos anteriores foram reconstruídos como modelos e estão marcados com `[
 
 ## O que já foi verificado e o que falta
 
-O programa foi compilado sem avisos e executado no macOS. Foram conferidos login, permissões, movimentações, alerta, relatório, backup e situações de falha. A [documentação de verificação](docs/VERIFICACAO.md) explica os testes e seus limites.
+O programa foi compilado sem avisos e executado no macOS. Depois da organização em camadas, a versão nova repetiu as mesmas saídas da anterior nos roteiros de teste. Foram conferidos login, permissões, movimentações, alerta, relatório, backup e situações de falha. A [documentação de verificação](docs/VERIFICACAO.md) explica os testes e seus limites.
 
 Windows e Linux ainda precisam de teste. Também faltam a avaliação com usuários e a medição de desempenho prevista nos requisitos. O foco desta versão é conseguir ler, entender e conferir o código.
 

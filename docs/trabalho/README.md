@@ -20,7 +20,7 @@ Os capítulos abaixo permitem ler o conteúdo diretamente no GitHub. Eles seguem
 | Etapa 8 | [2.8 INTEGRAÇÃO DAS MATÉRIAS](08-integracao.md) |
 | Conclusão | [Resultados, limites e próximos passos](conclusao.md) |
 | Referências | [Fontes consultadas](referencias.md) |
-| Código separado | [Código-fonte em C](../../codigo/estoquefacil.c) |
+| Código separado | [Código-fonte em C, organizado em camadas](../../codigo/src) |
 
 Os demais desenhos estão no [índice de diagramas](../../diagramas/README.md), com um [caderno separado em Word](../../diagramas/Caderno_de_diagramas_EstoqueFacil.docx).
 

@@ -29,26 +29,27 @@ class Dados <<struct>> {
   produtos : vetor de Produto
   movimentacoes : vetor de Movimentacao
 }
-class Autenticacao <<grupo de funcoes>> {
-  fazerLogin()
+class Autenticacao <<modulo seguranca>> {
+  autenticar(login, senha)
   verificarPermissao(nivel, acao)
-  cadastrarUsuario()
-  administrarUsuarios()
-  alterarSenha()
+  autorizar(acao)
+  cadastrarUsuario(...)
+  alterarNivel(posicao, nivel)
+  alterarPropriaSenha(atual, nova)
 }
-class Estoque <<grupo de funcoes>> {
-  manterProduto(alterar)
-  mudarSituacaoProduto()
-  registrarMovimentacao(entrada)
-  verificarEstoqueBaixo()
-  consultarEstoque()
-  gerarRelatorio()
-}
-class ArquivoLocal <<grupo de funcoes>> {
-  carregarDados()
-  salvarArquivo(nome)
-  guardarAlteracao()
+class Estoque <<modulo negocio>> {
+  salvarProduto(posicao, produto)
+  alternarSituacaoProduto(posicao)
+  registrarMovimentacao(...)
+  estaComEstoqueBaixo(produto)
+  gerarRelatorio(tipo, filtros)
   fazerBackup()
+}
+class ArquivoLocal <<modulo dados>> {
+  carregarDados()
+  iniciarAlteracao()
+  confirmarAlteracao()
+  salvarBackup()
 }
 Usuario "1" -- "0..*" Movimentacao : registra
 Produto "1" -- "0..*" Movimentacao : recebe
@@ -62,8 +63,8 @@ Estoque ..> Dados
 Estoque ..> ArquivoLocal : salva
 ArquivoLocal ..> Dados : le e grava
 note bottom
-  Structs e funções do arquivo estoquefacil.c.
-  Os grupos de funções não são classes da linguagem C.
+  Structs de src/comum/modelo.h e funções dos módulos de codigo/src.
+  Os módulos agrupam funções; não são classes da linguagem C.
   Identificação interna pela posição no vetor.
 end note
 @enduml

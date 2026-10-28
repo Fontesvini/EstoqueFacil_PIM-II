@@ -4,10 +4,10 @@ node [pin=true, fontname="Arial", fontsize=18, shape=box, fixedsize=true, margin
 edge [fontname="Arial", fontsize=16, color="black", penwidth=1.35, arrowsize=0.8];
 _a [label="", pos="0.0,0.0!", width="0.0", height="0.0", shape="point", style="invis"];
 _z [label="", pos="11.11111111111111,-11.38888888888889!", width="0.0", height="0.0", shape="point", style="invis"];
-I [label="Interface\nMenus e leitura das escolhas", pos="5.694444444444445,-1.0416666666666667!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
-A [label="Autenticação e controle de acesso\nLogin e verificarPermissao", pos="5.694444444444445,-3.611111111111111!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
-R [label="Regras de negócio\nProdutos, movimentações e relatórios", pos="5.694444444444445,-6.180555555555555!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
-D [label="Acesso a dados\nVetores e leitura ou gravação de arquivo", pos="5.694444444444445,-8.75!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
+I [label="Apresentação\nsrc/apresentacao · menus, telas e teclado", pos="5.694444444444445,-1.0416666666666667!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
+A [label="Autenticação e controle de acesso\nsrc/seguranca · login, sessão e permissões", pos="5.694444444444445,-3.611111111111111!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
+R [label="Regras de negócio\nsrc/negocio · produtos, saldo e relatórios", pos="5.694444444444445,-6.180555555555555!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
+D [label="Acesso a dados\nsrc/dados · leitura e gravação de arquivo", pos="5.694444444444445,-8.75!", width="7.5", height="1.3888888888888888", shape="folder", fontsize="21"];
 F [label="estoque_local.dat", pos="5.694444444444445,-10.694444444444445!", width="4.513888888888889", height="0.9027777777777778", shape="note", fontsize="23"];
 I:s -> A:n [arrowhead="open", style="dashed", label="identificar usuário", fontsize="18"];
 p1 [label="", pos="10.833333333333334,-1.0416666666666667!", width="0.0", height="0.0", shape="point", style="invis"];
@@ -25,6 +25,7 @@ p6 [label="", pos="0.16666666666666666,-8.75!", width="0.0", height="0.0", shape
 A:w -> p5 [arrowhead="none", style="dashed"];
 p5 -> p6 [arrowhead="none", style="dashed"];
 p6 -> D:w [arrowhead="open", style="dashed"];
+C [label="src/comum\nstructs, Resultado\ne validações\n(usado por todas)", pos="9.6,-10.694444444444445!", width="2.6", height="1.25", shape="note", fontsize="15"];
 R:s -> D:n [arrowhead="open", style="dashed", label="consultar e gravar", fontsize="18"];
 D:s -> F:n [arrowhead="normal", label="carregar / salvar", fontsize="18"];
 }

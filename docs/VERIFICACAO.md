@@ -1,6 +1,6 @@
 # Conferência entre documento, diagramas e código
 
-Código e diagramas conferidos em 11 de outubro de 2026: programa simples em um arquivo C, com armazenamento local em estoque_local.dat.
+Código e diagramas conferidos em 11 de outubro de 2026 e revisados em 28 de outubro de 2026, quando o programa foi organizado em camadas na pasta codigo/src. O armazenamento continua local, em estoque_local.dat.
 
 ## Relações verificadas
 
@@ -8,10 +8,10 @@ Código e diagramas conferidos em 11 de outubro de 2026: programa simples em um 
 | --- | --- |
 | 01 Casos de uso | Usuário reúne ações comuns. Consulta e Operador herdam Usuário; Gerente herda ambos; Administrador herda Gerente. O Operador não recebe relatórios. |
 | 02 Erros com extend | Os erros correspondem aos fluxos alternativos descritos: credenciais, inatividade, bloqueio, duplicidade, permissão, produto, quantidade, saldo e arquivo. A falha no banco da proposta inicial foi adaptada para falha no arquivo. |
-| 03 Classes | Usuario, Produto, Movimentacao e Dados representam structs. Autenticacao, Estoque e ArquivoLocal são grupos didáticos de funções, sem afirmar que C implementa classes. |
+| 03 Classes | Usuario, Produto, Movimentacao e Dados representam structs de comum/modelo.h. Autenticacao, Estoque e ArquivoLocal correspondem aos módulos seguranca, negocio e dados, sem afirmar que C implementa classes. |
 | 04 Atividade do alerta | Percorre os produtos, exige ativo e compara quantidade <= minimo. Inclui o caso sem alertas. |
 | 05 Fluxo do login | Até três rodadas na função; contador persistente por conta; terceiro erro de senha bloqueia por 300 segundos. Erro de gravação impede autenticação. |
-| 06 Pacotes | Separa responsabilidades de interface, autenticação, regras e dados dentro do único arquivo C. Não representa arquivos de código separados. |
+| 06 Pacotes | Cada pacote é uma pasta de codigo/src: apresentacao, seguranca, negocio e dados. As setas do diagrama são as mesmas dependências dos #include. Não representa servidores separados. |
 | 07 MER | Usuario e Produto se relacionam com Movimentacao. Categoria e fornecedor são atributos de Produto; nivel é atributo de Usuario. |
 | 08 DER | Campos e tipos correspondem às structs reais. Cada movimentação guarda posições válidas de usuário e produto nos vetores. Inativar preserva posições e histórico. |
 | 09 Rede | Endereços iguais ao quadro do PIM. Rede e VLANs são propostas. O celular não acessa o programa; nuvem é cópia externa manual, sem sincronização implementada. |
@@ -46,6 +46,23 @@ Na revisão para impressão, as oito etapas passaram a ser subseções de 2 Dese
 A versão revisada tem 39 páginas físicas e 29 de desenvolvimento. A numeração fica visível a partir da introdução, que mostra 6 no canto superior direito. Todas as páginas foram conferidas na renderização, e os 54 títulos do sumário tiveram seus números comparados com as páginas correspondentes. Esta revisão altera a documentação; não representa uma nova rodada de testes do programa.
 
 Os relatos semanais não são evidências de teste. Antes de trocar `[AJUSTAR]` por uma afirmação, o grupo precisa confirmar o que aconteceu. Os resultados técnicos acima descrevem execuções reais no ambiente macOS de preparação, não uma avaliação com os participantes do grupo.
+
+## Organização em camadas em 28/10/2026
+
+O arquivo único estoquefacil.c foi dividido em módulos dentro de codigo/src, sem mudar o que o programa faz:
+
+| Camada | Módulos | Pode usar |
+|---|---|---|
+| Apresentação | menu, telas_usuarios, telas_estoque, telas_relatorios, entrada, mensagens | Negócio, segurança e comum |
+| Regras de negócio | produtos, movimentacoes, relatorios, demo | Segurança, dados e comum |
+| Autenticação e controle de acesso | acesso, contas | Dados e comum |
+| Acesso a dados | repositorio | Comum |
+
+As regras devolvem um Resultado em vez de escrever na tela. As permissões são conferidas pelo menu e novamente pelas regras. As structs não mudaram; arquivos estoque_local.dat da versão anterior continuam aceitos.
+
+Verificação realizada no macOS: compilação com -std=c11 -Wall -Wextra -Wpedantic -Werror, sem avisos. A versão anterior e a nova receberam os mesmos roteiros de entrada, cobrindo demonstração, primeiro Administrador, login, senha incorreta, bloqueio, usuário inativo, quatro níveis, cadastro e alteração de usuários, troca de senha, produtos, entradas, saídas, estoque insuficiente, produto inativo, relatório com período, backup e argumentos inválidos. As saídas e o relatório gerado foram idênticos. Um arquivo de dados criado pela versão anterior foi aberto pela nova.
+
+As fontes dos diagramas 03 e 06 foram atualizadas para os nomes dos módulos. Os PNGs e SVGs correspondentes precisam ser regenerados, e o Word ainda precisa receber as seções revisadas, conforme o [checklist](CHECKLIST_WORD.md).
 
 O passo a passo e os resultados esperados de cada requisito estão no [guia de testes do código](../codigo/LEIA_ME.md). Os requisitos completos estão na [Etapa 3](trabalho/03-engenharia-agil.md).
 

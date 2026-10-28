@@ -32,7 +32,7 @@ No Word, escolha Inserir > Imagens e selecione o PNG. Mantenha a proporção. Em
 
 Consulta e Operador têm permissões diferentes. Por isso, ambos herdam as ações comuns de Usuário. Gerente reúne as permissões dos dois e Administrador herda as de Gerente. O Operador não gera relatório.
 
-Os nomes Usuario, Produto, Movimentacao, Dados e os nomes das funções seguem o código. O diagrama de classes é uma representação didática das structs e dos grupos de funções de C. Os pacotes indicam responsabilidades dentro do único arquivo `.c`.
+Os nomes Usuario, Produto, Movimentacao, Dados e os nomes das funções seguem o código. O diagrama de classes é uma representação didática das structs e dos grupos de funções de C. Os pacotes são as camadas do código: cada um corresponde a uma pasta de `codigo/src`, e uma camada só usa as de baixo.
 
 O modelo conceitual e o DER mostram os dados realmente utilizados: categoria e fornecedor são textos do produto; o nível é um número de 1 a 4 do usuário. Os relacionamentos são mantidos por posições nos vetores e conferidos pelo código. Registros são inativados, sem remover posições.
 

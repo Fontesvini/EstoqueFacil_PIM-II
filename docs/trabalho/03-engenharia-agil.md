@@ -151,15 +151,15 @@ Os nove erros são senha incorreta, usuário inativo, bloqueio após três tenta
 
 ## 2.3.7 Classes, atividades e arquitetura
 
-O diagrama de classes agrupa dados e operações. Em C, Usuario, Produto, Movimentacao e Dados são structs, estruturas que reúnem campos. Autenticacao, Estoque e ArquivoLocal representam grupos de funções, não classes da linguagem.
+O diagrama de classes agrupa dados e operações. Em C, Usuario, Produto, Movimentacao e Dados são structs, estruturas que reúnem campos. Autenticacao, Estoque e ArquivoLocal representam módulos, isto é, grupos de funções em arquivos próprios, não classes da linguagem.
 
 Um vetor guarda registros do mesmo tipo, como fichas. A posição identifica a conta ou o produto. verificarPermissao(nivel, acao) confere as ações. Os desenhos usam os nomes do código, como minimo e registrarMovimentacao.
 
 O diagrama de atividades representa um laço: ler o próximo produto ativo, comparar saldo e mínimo, mostrar o alerta se necessário e repetir até o fim do vetor de produtos. É como conferir as prateleiras uma por uma.
 
-A interface lê escolhas. Autenticação e controle de acesso conferem identidade e permissão. Regras de negócio validam operações. Acesso a dados carrega e grava estoque_local.dat. Essas camadas representam responsabilidades das funções reunidas no mesmo arquivo C.
+O programa segue uma arquitetura em camadas. A apresentação lê escolhas e mostra mensagens. Regras de negócio validam operações. Autenticação e controle de acesso conferem identidade e permissão. Acesso a dados carrega e grava estoque_local.dat. Cada camada é uma pasta de codigo/src e só usa as camadas de baixo.
 
-Os pacotes mostram essas responsabilidades dentro do mesmo programa.
+Os pacotes mostram essas camadas dentro do mesmo programa local. Separar as responsabilidades facilita localizar um erro, testar uma regra e trocar uma parte, como o arquivo por um banco de dados, sem reescrever os menus.
 
 ## 2.3.8 Organização do trabalho com Scrum
 

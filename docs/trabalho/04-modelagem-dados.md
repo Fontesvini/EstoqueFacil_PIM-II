@@ -66,9 +66,9 @@ Essa separação orienta os vetores. Formas normais descrevem modelos relacionai
 
 Armazenamento físico é a forma concreta de guardar os registros. Em memória, usamos Dados. Ao salvar, fwrite grava essa estrutura inteira em um arquivo temporário. O conteúdo é binário: bytes organizados conforme as structs, sem linhas destinadas à leitura humana. carregarDados usa fread e confere limites e referências antes de aceitar o arquivo.
 
-salvarArquivo termina a escrita antes de substituir o principal. Antes de uma alteração, o programa copia os dados em memória. Na falha, guardarAlteracao recupera essa cópia. Isso evita confirmar saldo sem lançamento, mas não oferece todas as garantias de recuperação de um SGBD.
+Essas operações ficam isoladas na camada de acesso a dados, em dados/repositorio.c. A gravação termina antes de substituir o principal. Antes de uma alteração, iniciarAlteracao copia os dados em memória. Na falha, confirmarAlteracao recupera essa cópia. Isso evita confirmar saldo sem lançamento, mas não oferece todas as garantias de recuperação de um SGBD.
 
-As operações usam funções e laços: buscarProduto localiza o código; verificarEstoqueBaixo compara quantidade e minimo. No relatório, as posições da movimentação permitem obter código do produto e nome do responsável. Os trechos reais são explicados na seção 2.5.
+As operações usam funções e laços: buscarProduto localiza o código; estaComEstoqueBaixo compara quantidade e minimo. No relatório, as posições da movimentação permitem obter código do produto e nome do responsável. Os trechos reais são explicados na seção 2.5.
 
 ## 2.4.6 Integridade e recuperação
 

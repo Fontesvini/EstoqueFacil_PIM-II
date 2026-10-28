@@ -70,7 +70,7 @@ Fontes alternativos: [PUML](fontes/05_fluxograma_login.puml).
 
 ## 06 | Pacotes e responsabilidades
 
-Separa interface, autenticação, regras e acesso a dados. Essas responsabilidades estão no mesmo arquivo C.
+Mostra as camadas do código: apresentação, regras de negócio, autenticação e controle de acesso, e acesso a dados. Cada pacote é uma pasta de `codigo/src`.
 
 ![Pacotes e responsabilidades](imagens/06_pacotes.png)
 

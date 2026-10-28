@@ -21,9 +21,9 @@ p4 [label="", pos="11.222222222222221,-1.7361111111111112!", width="0.0", height
 D:e -> p3 [arrowhead="none", dir="both", arrowtail="diamond"];
 p3 -> p4 [arrowhead="none"];
 p4 -> P:e [arrowhead="none"];
-A [label="«grupo de funções» Autenticacao\n____________________________\nfazerLogin()\nverificarPermissao(nivel, acao)\ncadastrarUsuario()\nadministrarUsuarios()\nalterarSenha()", pos="2.9166666666666665,-11.38888888888889!", width="5.069444444444445", height="3.3333333333333335", shape="box", fontsize="17"];
-E [label="«grupo de funções» Estoque\n____________________________\nmanterProduto(alterar)\nmudarSituacaoProduto()\nregistrarMovimentacao(entrada)\nverificarEstoqueBaixo()\nconsultarEstoque()\ngerarRelatorio()", pos="8.541666666666666,-11.38888888888889!", width="5.069444444444445", height="3.3333333333333335", shape="box", fontsize="17"];
-F [label="«grupo de funções» ArquivoLocal\ncarregarDados(); salvarArquivo(nome)\nguardarAlteracao(); fazerBackup()", pos="5.694444444444445,-14.23611111111111!", width="7.5", height="1.4583333333333333", shape="box", fontsize="18"];
+A [label="«módulo seguranca» Autenticacao\n____________________________\nautenticar(login, senha)\nverificarPermissao(nivel, acao)\nautorizar(acao)\ncadastrarUsuario(...)\nalterarNivel(posicao, nivel)\nalterarPropriaSenha(atual, nova)", pos="2.9166666666666665,-11.38888888888889!", width="5.069444444444445", height="3.3333333333333335", shape="box", fontsize="17"];
+E [label="«módulo negocio» Estoque\n____________________________\nsalvarProduto(posicao, produto)\nalternarSituacaoProduto(posicao)\nregistrarMovimentacao(...)\nestaComEstoqueBaixo(produto)\ngerarRelatorio(tipo, filtros)\nfazerBackup()", pos="8.541666666666666,-11.38888888888889!", width="5.069444444444445", height="3.3333333333333335", shape="box", fontsize="17"];
+F [label="«módulo dados» ArquivoLocal (repositorio.c)\ncarregarDados(); iniciarAlteracao()\nconfirmarAlteracao(); salvarBackup()", pos="5.694444444444445,-14.23611111111111!", width="7.5", height="1.4583333333333333", shape="box", fontsize="18"];
 E:w -> A:e [arrowhead="open", style="dashed"];
 A:s -> F:nw [arrowhead="open", style="dashed"];
 E:s -> F:ne [arrowhead="open", style="dashed"];

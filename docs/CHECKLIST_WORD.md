@@ -35,7 +35,10 @@ As quatro figuras principais já estão inseridas. Os demais diagramas ficam no 
 
 ## Arquivo de código
 
-O código completo fica separado do Word. Compile [codigo/estoquefacil.c](../codigo/estoquefacil.c). O texto mantém apenas os pequenos exemplos necessários à explicação de Programação em C. Se o grupo alterar o programa, atualize a explicação e os diagramas afetados.
+O código completo fica separado do Word, organizado em camadas na pasta [codigo/src](../codigo/src). Compile com `bash rodar.sh`, conforme o [guia do código](../codigo/LEIA_ME.md). O texto mantém apenas os pequenos exemplos necessários à explicação de Programação em C. Se o grupo alterar o programa, atualize a explicação e os diagramas afetados.
+
+- [ ] Levar ao Word as seções revisadas para a arquitetura em camadas: 2.3.7, 2.4.5, 2.5 e a introdução. Os textos atualizados estão nos capítulos em Markdown.
+- [ ] Substituir no caderno de diagramas as figuras 03 (classes) e 06 (pacotes) pelos PNGs já regenerados em `diagramas/imagens`.
 
 
 ## Revisão do cronograma

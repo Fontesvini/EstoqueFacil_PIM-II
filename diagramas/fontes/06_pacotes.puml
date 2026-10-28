@@ -5,20 +5,21 @@ skinparam defaultFontName Arial
 skinparam defaultFontSize 17
 skinparam dpi 220
 top to bottom direction
-package "Interface\nMenus e leitura das escolhas" as I
-package "Autenticação e controle de acesso\nLogin e verificarPermissao" as A
-package "Regras de negócio\nProdutos, movimentações e relatórios" as R
-package "Acesso a dados\nVetores e leitura ou gravação de arquivo" as D
+package "Apresentação\nsrc/apresentacao · menus, telas e teclado" as I
+package "Autenticação e controle de acesso\nsrc/seguranca · login, sessão e permissões" as A
+package "Regras de negócio\nsrc/negocio · produtos, saldo e relatórios" as R
+package "Acesso a dados\nsrc/dados · leitura e gravação de arquivo" as D
 artifact "Arquivo local\nestoque_local.dat" as F
 I ..> A : identificar usuário
 I ..> R : solicitar operação
 R ..> A : conferir permissão
 A ..> D : consultar e manter contas
 R ..> D : consultar e gravar
-D --> F : carregarDados e salvarArquivo
+D --> F : carregarDados e confirmarAlteracao
 note bottom of D
-  Responsabilidades das funções em estoquefacil.c.
-  Vetores compartilhados na struct Dados.
-  Não representam servidores ou arquivos C separados.
+  Cada pacote é uma pasta de codigo/src com arquivos .c e .h.
+  Uma camada só usa as camadas de baixo.
+  src/comum (structs, Resultado e validações) é usado por todas.
+  Não representam servidores: é um único programa local.
 end note
 @enduml

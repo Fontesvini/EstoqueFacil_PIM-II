@@ -17,6 +17,8 @@
 #endif
 #include "dados/repositorio.h"
 
+/* Fica dentro de src/ para aparecer no VS Code junto do código. */
+#define PASTA_CODIGO "src"
 #define PASTA_SAIDA "output"
 
 Dados dados;
@@ -46,7 +48,9 @@ static int irParaPastaDoPrograma(const char *programa) {
 
 int usarPastaDoPrograma(const char *programa) {
     int ok = irParaPastaDoPrograma(programa);
-    /* Dados, backup e relatório ficam juntos em output/, ao lado do executável. */
+    /* Dados, backup e relatório ficam juntos em src/output/. Sem a pasta src,
+       como num executável copiado sozinho, usa output/ ao lado dele. */
+    if (ok) mudarPasta(PASTA_CODIGO);
     if ((criarPasta(PASTA_SAIDA) != 0 && errno != EEXIST) || mudarPasta(PASTA_SAIDA) != 0) ok = 0;
     if (pastaAtual(pasta, sizeof pasta) == NULL) snprintf(pasta, sizeof pasta, ".");
     return ok;

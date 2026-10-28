@@ -14,7 +14,7 @@
    estes vetores entre iniciarAlteracao e confirmarAlteracao. */
 extern Dados dados;
 
-/* Usa a pasta output/, ao lado do executável, para todos os arquivos (dados,
+/* Usa a pasta src/output/, junto do código, para todos os arquivos (dados,
    backup e relatório) e a cria se não existir. Assim tudo fica no mesmo lugar,
    de qualquer pasta que o programa seja aberto. Devolve 0 se não conseguir. */
 int usarPastaDoPrograma(const char *programa);

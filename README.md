@@ -32,10 +32,10 @@ Por exemplo: CAN001 tem três canetas e mínimo de cinco. O alerta aparece. Se e
 Na página do repositório, use **Code > Download ZIP** e extraia a pasta. Depois:
 
 - **Dois cliques** em `EstoqueFacil.command`, no Finder. Na primeira vez, se o Mac pedir confirmação, use botão direito > **Abrir**.
-- Ou abra a pasta no **VS Code** e aperte **F5**.
+- Ou abra a pasta no **VS Code** (a principal, `codigo` ou `src`) e aperte **F5**.
 - Ou, no terminal, dentro da pasta `codigo`, execute `bash rodar.sh`.
 
-Na primeira vez, o programa pede o cadastro do primeiro Administrador. Cada cadastro e movimentação é salvo na hora em `codigo/output/estoque_local.dat`, então tudo continua lá quando você abrir de novo. O relatório (`relatorio.txt`) e o backup ficam na mesma pasta `codigo/output`. Para testar com contas de exemplo (`admin`, `gerente`, `operador` e `consulta`, senha `teste123`), use `bash rodar.sh --demo` antes de ter dados. Se faltar o compilador, o script orienta a instalação das Xcode Command Line Tools. Ele não instala nada sozinho. Há instruções de compilação manual e uma nota sobre Windows no [guia do código](codigo/LEIA_ME.md).
+Na primeira vez, o programa pede o cadastro do primeiro Administrador. Cada cadastro e movimentação é salvo na hora em `codigo/src/output/estoque_local.dat`, então tudo continua lá quando você abrir de novo. O relatório (`relatorio.txt`) e o backup ficam na mesma pasta `codigo/src/output`. Para testar com contas de exemplo (`admin`, `gerente`, `operador` e `consulta`, senha `teste123`), use `bash rodar.sh --demo` antes de ter dados. Se faltar o compilador, o script orienta a instalação das Xcode Command Line Tools. Ele não instala nada sozinho. Há instruções de compilação manual e uma nota sobre Windows no [guia do código](codigo/LEIA_ME.md).
 
 ## Quem pode fazer o quê
 

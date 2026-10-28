@@ -88,7 +88,7 @@ A senha fica como um hash simples, usado para estudar a comparação de senhas. 
 
 ## Integrantes e referências
 
-Product Owner: Vinicius do Prado Fontes - RA: R331JF5. Scrum Master: João Pedro Silva Baranzeli - RA:H884977. Equipe de desenvolvimento: Rogere Jesus Maia - RA:F36BEG7. 
+Product Owner: Vinicius do Prado Fontes - RA: R331JF5. Scrum Master: João Pedro Silva Baranzeli - RA:H884977. Equipe de desenvolvimento: Roger Jesus Maia - RA:F36BEG7. 
 Cidade: São José dos Campos, 2026.
 
 As fontes consultadas estão nas [referências do PIM](docs/trabalho/referencias.md). Antes da entrega, precisamos preencher os dados do grupo, validar os registros semanais e revisar os campos indicados no [checklist](docs/CHECKLIST_WORD.md).

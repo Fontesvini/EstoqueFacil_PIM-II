@@ -1,0 +1,11 @@
+{
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.executorMap": {
+    "c": "d=$dir; while [ ! -f \"$d/rodar.sh\" ] && [ \"$d\" != / ]; do d=$(dirname \"$d\"); done; bash \"$d/rodar.sh\""
+  },
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/src"
+  ],
+  "C_Cpp.default.cStandard": "c11"
+}

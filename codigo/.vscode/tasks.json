@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Rodar EstoqueFácil",
+      "type": "shell",
+      "command": "bash rodar.sh",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "focus": true, "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Compilar EstoqueFácil",
+      "type": "shell",
+      "command": "clang -std=c11 -Wall -Wextra -Wpedantic -Werror -g -Isrc src/main.c src/*/*.c -o estoquefacil",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}

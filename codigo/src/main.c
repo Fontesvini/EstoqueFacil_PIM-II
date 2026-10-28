@@ -31,7 +31,10 @@
 
 int main(int argc, char *argv[]) {
     if (argc > 2 || (argc == 2 && strcmp(argv[1], "--demo") != 0)) { puts("Uso: ./estoquefacil [--demo]"); return 1; }
+    /* Os dados ficam sempre ao lado do executável, não na pasta do terminal. */
+    usarPastaDoPrograma(argv[0]);
     if (!carregarDados()) { puts("Arquivo local invalido ou sem acesso. Preserve-o e confira seu backup."); return 1; }
+    printf("Dados salvos automaticamente em: %s/%s\n", pastaDosDados(), ARQUIVO_DADOS);
     if (argc == 2 && !telaCriarDemo()) return 1;
     if (quantidadeUsuarios() == 0) { puts("Crie o primeiro Administrador:"); telaCadastrarUsuario(); }
     if (quantidadeUsuarios() == 0) return 1;

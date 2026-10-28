@@ -64,6 +64,16 @@ Verificação realizada no macOS: compilação com -std=c11 -Wall -Wextra -Wpeda
 
 As fontes dos diagramas 03 e 06 foram atualizadas para os nomes dos módulos. Os SVGs foram regenerados com Viz.js (motor neato, como os demais) e os PNGs foram convertidos com resvg, mantendo 2.400 pixels de largura e as mesmas alturas anteriores; as duas imagens foram conferidas visualmente. O Word e o caderno ainda precisam receber as seções e figuras revisadas, conforme o [checklist](CHECKLIST_WORD.md).
 
+## Local fixo dos dados em 28/10/2026
+
+Antes, o programa gravava `estoque_local.dat` na pasta de onde era aberto. Abrindo por caminhos diferentes, como o terminal, o botão do VS Code ou outra pasta, ele criava arquivos separados e parecia perder os cadastros. Agora `usarPastaDoPrograma`, em `dados/repositorio.c`, faz o programa usar sempre a pasta `codigo/src/output`, junto do código, para o banco, o backup e o relatório. A pasta é criada se não existir, e a tela inicial mostra o caminho do arquivo.
+
+Teste realizado no macOS: o programa foi aberto a partir de uma pasta diferente; o cadastro do Administrador, de um produto e de uma entrada de 20 unidades ficou gravado em `codigo/src/output/estoque_local.dat`, sem criar arquivo na outra pasta. Ao abrir de novo a partir de `/`, o login funcionou e a consulta mostrou o saldo 20.
+
+Também foram incluídos `EstoqueFacil.command`, para abrir com dois cliques no Finder, e as configurações do VS Code para F5, Cmd+Shift+B e o botão do Code Runner.
+
+O relatório e o backup gerados no mesmo teste também ficaram em `codigo/src/output`.
+
 O passo a passo e os resultados esperados de cada requisito estão no [guia de testes do código](../codigo/LEIA_ME.md). Os requisitos completos estão na [Etapa 3](trabalho/03-engenharia-agil.md).
 
 ## Como registrar a próxima execução

@@ -1,12 +1,62 @@
+#define _POSIX_C_SOURCE 200809L
 #include <errno.h>
+#include <stdlib.h>
 #include <string.h>
 #ifdef _WIN32
 #include <windows.h>
+#include <direct.h>
+#define mudarPasta _chdir
+#define criarPasta(nome) _mkdir(nome)
+#define pastaAtual _getcwd
+#else
+#include <unistd.h>
+#include <sys/stat.h>
+#define mudarPasta chdir
+#define criarPasta(nome) mkdir(nome, 0755)
+#define pastaAtual getcwd
 #endif
 #include "dados/repositorio.h"
 
+/* Fica dentro de src/ para aparecer no VS Code junto do código. */
+#define PASTA_CODIGO "src"
+#define PASTA_SAIDA "output"
+
 Dados dados;
 static Dados antes;
+static char pasta[4096] = ".";
+
+/* Entra na pasta onde está o executável. Devolve 0 se não conseguir. */
+static int irParaPastaDoPrograma(const char *programa) {
+    char caminho[4096], *barra;
+#ifdef _WIN32
+    char *outra;
+    if (_fullpath(caminho, programa, sizeof caminho) == NULL) return 0;
+    barra = strrchr(caminho, '\\');
+    outra = strrchr(caminho, '/');
+    if (outra > barra) barra = outra;
+    if (barra == NULL) return 0;
+    *barra = '\0';
+#else
+    /* Sem barra, o programa veio do PATH: fica a pasta atual. */
+    if (strchr(programa, '/') == NULL || realpath(programa, caminho) == NULL) return 0;
+    barra = strrchr(caminho, '/');
+    if (barra == caminho) barra[1] = '\0';
+    else *barra = '\0';
+#endif
+    return mudarPasta(caminho) == 0;
+}
+
+int usarPastaDoPrograma(const char *programa) {
+    int ok = irParaPastaDoPrograma(programa);
+    /* Dados, backup e relatório ficam juntos em src/output/. Sem a pasta src,
+       como num executável copiado sozinho, usa output/ ao lado dele. */
+    if (ok) mudarPasta(PASTA_CODIGO);
+    if ((criarPasta(PASTA_SAIDA) != 0 && errno != EEXIST) || mudarPasta(PASTA_SAIDA) != 0) ok = 0;
+    if (pastaAtual(pasta, sizeof pasta) == NULL) snprintf(pasta, sizeof pasta, ".");
+    return ok;
+}
+
+const char *pastaDosDados(void) { return pasta; }
 
 static int salvarArquivo(const char *nome) {
     char temporario[80];

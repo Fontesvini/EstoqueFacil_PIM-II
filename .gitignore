@@ -12,3 +12,5 @@ codigo/estoquefacil.exe
 .DS_Store
 Thumbs.db
 ~$*.docx
+codigo/output/
+codigo/src/output/

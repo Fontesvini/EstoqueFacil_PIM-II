@@ -2,13 +2,7 @@
 
 O programa fica em [src/](src), dividido em camadas. Cada camada é uma pasta, e cada assunto tem um arquivo `.c` com o seu `.h`. Para compilar e abrir no Mac, o script [rodar.sh](rodar.sh) confere as ferramentas, compila todos os arquivos e executa o programa.
 
-Com esta pasta aberta no terminal do VS Code:
-
-```sh
-bash rodar.sh --demo
-```
-
-Login `admin`, senha `teste123`, apenas para teste. Nas próximas execuções, use `bash rodar.sh`. A demonstração só é criada quando ainda não há dados.
+Para abrir: dois cliques em `EstoqueFacil.command`, na pasta principal; **F5** no VS Code; ou `bash rodar.sh` nesta pasta. Os arquivos gerados ficam em `src/output/`: `estoque_local.dat` (dados, salvos a cada alteração), `backup_local.dat` e `relatorio.txt`. O [guia completo](LEIA_ME.md) explica o modo de demonstração.
 
 ## Arquitetura em camadas
 

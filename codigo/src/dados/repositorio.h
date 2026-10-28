@@ -14,6 +14,13 @@
    estes vetores entre iniciarAlteracao e confirmarAlteracao. */
 extern Dados dados;
 
+/* Usa a pasta src/output/, junto do código, para todos os arquivos (dados,
+   backup e relatório) e a cria se não existir. Assim tudo fica no mesmo lugar,
+   de qualquer pasta que o programa seja aberto. Devolve 0 se não conseguir. */
+int usarPastaDoPrograma(const char *programa);
+/* Caminho completo da pasta onde os arquivos são salvos. */
+const char *pastaDosDados(void);
+
 /* Lê estoque_local.dat e confere os limites. Sem arquivo, começa vazio. */
 int carregarDados(void);
 

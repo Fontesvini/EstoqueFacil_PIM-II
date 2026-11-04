@@ -104,4 +104,8 @@ Mostra a infraestrutura proposta. A versão atual roda localmente; acesso por ce
 
 Fonte: elaborado pelo grupo (2026).
 
+## Arquivos do Astah
+
+Também fizemos os nove diagramas no Astah. Os arquivos editáveis estão na pasta [diagramas_astah](diagramas_astah), com o mesmo número usado nesta página. Para abrir, use o Astah UML ou o Astah Professional.
+
 [Voltar ao início](../README.md)
